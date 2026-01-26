@@ -2,7 +2,7 @@
 
 return [
     'site_title' => 'La Favela | Bar tropical',
-    'location' => 'Bar tropical brasileño',
+    'location' => 'La Favela Lounge Bar - Alameda, Sevilla',
     'language' => 'Idioma',
     'ribbon' => 'Bar estilo Brasilia - Noches tropicales',
     'subtitle' => 'Ritmo de samba, calor de caipirinha',
@@ -13,7 +13,7 @@ return [
     'hours' => 'Abierto mar-dom 14:00 - 03:00',
     'visit_title' => 'Visita La Favela',
     'visit_intro' => 'Luces brillantes, brisas cálidas y el ritmo de Brasil. Brinda con cócteles frescos, comparte tapas y deja que la noche fluya.',
-    'visit_address' => 'Rua Tropical 88, Downtown - sets en vivo cada viernes y sábado.',
+    'visit_address' => 'C. Amor de Dios, 56, Casco Antiguo, 41002 Sevilla',
     'cta_cocktails' => 'Ver los cócteles',
     'cta_menu' => 'Ver el menú',
     'footer' => 'Cozy Lounge Bar by La Favela.',

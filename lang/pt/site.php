@@ -2,7 +2,7 @@
 
 return [
     'site_title' => 'La Favela | Bar tropical',
-    'location' => 'Bar tropical brasileiro',
+    'location' => 'La Favela Lounge Bar - Alameda, Sevilha',
     'language' => 'Idioma',
     'ribbon' => 'Bar estilo Brasília - Noites tropicais',
     'subtitle' => 'Batidas de samba, calor de caipirinha',
@@ -13,7 +13,7 @@ return [
     'hours' => 'Aberto ter-dom 14:00 - 03:00',
     'visit_title' => 'Visite La Favela',
     'visit_intro' => 'Luzes vibrantes, brisas quentes e o ritmo do Brasil. Brinde com coquetéis frescos, compartilhe tapas e deixe a noite acontecer.',
-    'visit_address' => 'Rua Tropical 88, Downtown - shows ao vivo toda sexta e sábado.',
+    'visit_address' => 'C. Amor de Dios, 56, Casco Antiguo, 41002 Sevilha',
     'cta_cocktails' => 'Ver os coquetéis',
     'cta_menu' => 'Ver o menu',
     'footer' => 'Cozy Lounge Bar by La Favela.',

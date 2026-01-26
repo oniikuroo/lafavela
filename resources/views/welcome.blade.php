@@ -275,6 +275,19 @@
                 color: #1a2d26;
             }
 
+            .address-link {
+                color: var(--brazil-blue);
+                font-weight: 600;
+                text-decoration: none;
+                border-bottom: 2px solid rgba(11, 58, 138, 0.25);
+                padding-bottom: 2px;
+            }
+
+            .address-link:hover {
+                color: var(--brazil-green);
+                border-bottom-color: rgba(26, 127, 59, 0.35);
+            }
+
             .cta-row {
                 display: flex;
                 flex-wrap: wrap;
@@ -408,7 +421,6 @@
                 <a class="brand" href="{{ url('/') }}">La Favela</a>
                 <div class="topbar-right">
                     <div class="location">{{ __('site.location') }}</div>
-                    <a class="nav-link" href="{{ route('cocktails') }}">{{ __('site.nav_cocktails') }}</a>
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
@@ -449,7 +461,11 @@
                 <section class="info-panel">
                     <h2>{{ __('site.visit_title') }}</h2>
                     <p>{{ __('site.visit_intro') }}</p>
-                    <p>{{ __('site.visit_address') }}</p>
+                    <p>
+                        <a class="address-link" href="https://maps.app.goo.gl/h2iAN9fyDTt7f8Mt6" target="_blank" rel="noopener noreferrer">
+                            {{ __('site.visit_address') }}
+                        </a>
+                    </p>
                     <div class="cta-row">
                         <a class="cta primary" href="{{ route('cocktails') }}">{{ __('site.cta_cocktails') }}</a>
                         <a class="cta secondary" href="{{ route('menu') }}">{{ __('site.cta_menu') }}</a>

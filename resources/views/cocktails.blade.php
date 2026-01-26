@@ -154,7 +154,7 @@
             .menu-grid {
                 margin-top: 28px;
                 display: grid;
-                grid-template-columns: minmax(0, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 22px;
             }
 
@@ -228,6 +228,10 @@
 
                 .menu-hours {
                     text-align: left;
+                }
+
+                .menu-grid {
+                    grid-template-columns: 1fr;
                 }
 
                 .topbar-right {
@@ -358,6 +362,65 @@
                         <div>
                             <span>{{ __('site.item_beso_jaguar') }}</span>
                             <small>{{ __('site.item_beso_jaguar_desc') }}</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <h3>Classic cocktails</h3>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caïpirinha</span>
+                            <small>lima, azúcar, cachaça, casera</small>
+                        </div>
+                        <div class="price">8</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caïpiroska</span>
+                            <small>lima, azúcar, vodka, casera</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caïpironmiel</span>
+                            <small>lima, azúcar, ron miel, casera</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caïpironmiel passion</span>
+                            <small>lima, azúcar, ron miel, cachaça, casera</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caïpilito</span>
+                            <small>lima, azúcar, cachaça, salitos azul</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Cachondo</span>
+                            <small>lima, azúcar, cachaça, vodka negro, salitos fresa</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Piña Colada</span>
+                            <small>ron, piña, coco, lima</small>
+                        </div>
+                        <div class="price">9</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Daikiri</span>
+                            <small>ron blanco, lima, azúcar</small>
                         </div>
                         <div class="price">9</div>
                     </div>
