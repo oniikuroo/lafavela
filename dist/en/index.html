@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>﻿La Favela | Tropical Bar</title>
+        <title>?La Favela | Tropical Bar</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -481,10 +481,10 @@
                     <div class="location">La Favela Lounge Bar - Alameda, Seville</div>
                     <div class="lang-select">
                         <span>Language</span>
-                        <select aria-label="Language" onchange="window.location=this.value">
-                            <option value="/es/" >ES</option>
-                            <option value="/en/" selected>EN</option>
-                            <option value="/pt/" >PT</option>
+                        <select aria-label="Language" onchange="setLanguage(this.value)">
+                            <option value="es" >ES</option>
+                            <option value="en" selected>EN</option>
+                            <option value="pt" >PT</option>
                         </select>
                     </div>
                 </div>
@@ -505,7 +505,7 @@
                     <div class="label-subtitle">Samba beats, caipirinha heat</div>
                     <div class="label-line" aria-hidden="true"></div>
                     <div class="label-tags">
-                        <span class="tag">Cachaça craft</span>
+                        <span class="tag">Cacha�a craft</span>
                         <span class="tag">Live samba</span>
                         <span class="tag">Sunset terrace</span>
                         <span class="tag">Tropical bites</span>
@@ -537,6 +537,23 @@
 
             <footer class="footer">Cozy Lounge Bar by La Favela.</footer>
         </div>
-    </body>
+            <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.search = "";
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>    </body>
 </html>
+
+
 

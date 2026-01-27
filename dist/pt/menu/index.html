@@ -1,10 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ï»¿La Favela | Menu</title>
+        <title>?La Favela | Menu</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -267,15 +267,15 @@
             <header class="topbar">
                 <a class="brand" href="/pt/">La Favela</a>
                 <div class="topbar-right">
-                    <a class="nav-link" href="/pt/">Voltar ao inÃ­cio</a>
-                    <a class="nav-link" href="/cocktails">CoquetÃ©is</a>
+                    <a class="nav-link" href="/pt/">Voltar ao início</a>
+                    <a class="nav-link" href="/cocktails">Coquetéis</a>
                     <a class="nav-link" href="/chupitos">Doses</a>
                     <div class="lang-select">
                         <span>Idioma</span>
-                        <select aria-label="Idioma" onchange="window.location=this.value">
-                            <option value="/es/" >ES</option>
-                            <option value="/en/" >EN</option>
-                            <option value="/pt/" selected>PT</option>
+                        <select aria-label="Idioma" onchange="setLanguage(this.value)">
+                            <option value="es" >ES</option>
+                            <option value="en" >EN</option>
+                            <option value="pt" selected>PT</option>
                         </select>
                     </div>
                 </div>
@@ -285,11 +285,11 @@
                 <div>
                     <h1 class="menu-title">Menu</h1>
                     <div class="divider" aria-hidden="true"></div>
-                    <p class="menu-subtitle">ClÃ¡ssicos tropicais com um toque do Rio</p>
-                    <div class="menu-ad">Doses a 1,50 â‚¬</div>
+                    <p class="menu-subtitle">Clássicos tropicais com um toque do Rio</p>
+                    <div class="menu-ad">Doses a 1,50 €</div>
                 </div>
                 <div class="menu-hours">
-                    Ter-dom - 14:00 Ã s 03:00
+                    Ter-dom - 14:00 às 03:00
                 </div>
             </section>
 
@@ -298,7 +298,7 @@
                     <h3>Street food</h3>
                     <div class="menu-item">
                         <div>
-                            <span>HambÃºrguer completo</span>
+                            <span>Hambúrguer completo</span>
                             <small>Carne ou frango com queijo, alface, tomate e batatas fritas</small>
                         </div>
                         <div class="price">8.90</div>
@@ -344,8 +344,8 @@
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>CoraÃ§Ã£o de galinha</span>
-                            <small>Espetinho de coraÃ§Ã£o de frango</small>
+                            <span>Coração de galinha</span>
+                            <small>Espetinho de coração de frango</small>
                         </div>
                         <div class="price">3.00</div>
                     </div>
@@ -359,18 +359,18 @@
                 </div>
 
                 <div class="menu-card">
-                    <h3>PorÃ§Ãµes</h3>
+                    <h3>Porções</h3>
                     <div class="menu-item">
                         <div>
                             <span>Arroz</span>
-                            <small>Arroz cozido com alho e Ã³leo</small>
+                            <small>Arroz cozido com alho e óleo</small>
                         </div>
                         <div class="price">3.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>FeijÃ£o preto</span>
-                            <small>FeijÃ£o preto com especiarias</small>
+                            <span>Feijão preto</span>
+                            <small>Feijão preto com especiarias</small>
                         </div>
                         <div class="price">4.50</div>
                     </div>
@@ -407,6 +407,23 @@
 
             <footer class="footer-note">Cozy Lounge Bar by La Favela.</footer>
         </div>
-    </body>
+            <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.search = "";
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>    </body>
 </html>
+
+
 

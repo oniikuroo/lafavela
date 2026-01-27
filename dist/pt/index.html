@@ -1,10 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ï»¿La Favela | Bar tropical</title>
+        <title>?La Favela | Bar tropical</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -481,10 +481,10 @@
                     <div class="location">La Favela Lounge Bar - Alameda, Sevilha</div>
                     <div class="lang-select">
                         <span>Idioma</span>
-                        <select aria-label="Idioma" onchange="window.location=this.value">
-                            <option value="/es/" >ES</option>
-                            <option value="/en/" >EN</option>
-                            <option value="/pt/" selected>PT</option>
+                        <select aria-label="Idioma" onchange="setLanguage(this.value)">
+                            <option value="es" >ES</option>
+                            <option value="en" >EN</option>
+                            <option value="pt" selected>PT</option>
                         </select>
                     </div>
                 </div>
@@ -492,7 +492,7 @@
 
             <main class="hero">
                 <section class="label-card" aria-labelledby="label-title">
-                    <span class="label-ribbon">Bar estilo BrasÃ­lia - Noites tropicais</span>
+                    <span class="label-ribbon">Bar estilo Brasília - Noites tropicais</span>
                     <h1 class="label-title" id="label-title">
                         <span>La Favela</span>
                         <svg class="label-flag" viewBox="0 0 42 28" aria-hidden="true">
@@ -505,9 +505,9 @@
                     <div class="label-subtitle">Batidas de samba, calor de caipirinha</div>
                     <div class="label-line" aria-hidden="true"></div>
                     <div class="label-tags">
-                        <span class="tag">CachaÃ§a artesanal</span>
+                        <span class="tag">Cachaça artesanal</span>
                         <span class="tag">Samba ao vivo</span>
-                        <span class="tag">TerraÃ§o ao pÃ´r do sol</span>
+                        <span class="tag">Terraço ao pôr do sol</span>
                         <span class="tag">Petiscos tropicais</span>
                     </div>
                     <div class="label-footer">
@@ -520,14 +520,14 @@
                 <div class="shots-ad"><span>Doses a 1.50</span></div>
                     <section class="info-panel">
                         <h2>Visite La Favela</h2>
-                        <p>Luzes vibrantes, brisas quentes e o ritmo do Brasil. Brinde com coquetÃ©is frescos, compartilhe tapas e deixe a noite acontecer.</p>
+                        <p>Luzes vibrantes, brisas quentes e o ritmo do Brasil. Brinde com coquetéis frescos, compartilhe tapas e deixe a noite acontecer.</p>
                         <p>
                             <a class="address-link" href="https://maps.app.goo.gl/h2iAN9fyDTt7f8Mt6" target="_blank" rel="noopener noreferrer">
                                 C. Amor de Dios, 56, Casco Antiguo, 41002 Sevilha
                             </a>
                         </p>
                         <div class="cta-row">
-                            <a class="cta primary" href="/cocktails">Ver os coquetÃ©is</a>
+                            <a class="cta primary" href="/cocktails">Ver os coquetéis</a>
                             <a class="cta secondary" href="/menu">Ver o menu</a>
                             <a class="cta secondary" href="/chupitos">Ver doses</a>
                         </div>
@@ -537,6 +537,23 @@
 
             <footer class="footer">Cozy Lounge Bar by La Favela.</footer>
         </div>
-    </body>
+            <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.search = "";
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>    </body>
 </html>
+
+
 

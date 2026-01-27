@@ -1,10 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ï»¿La Favela | MenÃº</title>
+        <title>?La Favela | Menú</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,14 +268,14 @@
                 <a class="brand" href="/es/">La Favela</a>
                 <div class="topbar-right">
                     <a class="nav-link" href="/es/">Volver al inicio</a>
-                    <a class="nav-link" href="/cocktails">CÃ³cteles</a>
+                    <a class="nav-link" href="/cocktails">Cócteles</a>
                     <a class="nav-link" href="/chupitos">Chupitos</a>
                     <div class="lang-select">
                         <span>Idioma</span>
-                        <select aria-label="Idioma" onchange="window.location=this.value">
-                            <option value="/es/" selected>ES</option>
-                            <option value="/en/" >EN</option>
-                            <option value="/pt/" >PT</option>
+                        <select aria-label="Idioma" onchange="setLanguage(this.value)">
+                            <option value="es" selected>ES</option>
+                            <option value="en" >EN</option>
+                            <option value="pt" >PT</option>
                         </select>
                     </div>
                 </div>
@@ -283,10 +283,10 @@
 
             <section class="menu-hero">
                 <div>
-                    <h1 class="menu-title">MenÃº</h1>
+                    <h1 class="menu-title">Menú</h1>
                     <div class="divider" aria-hidden="true"></div>
-                    <p class="menu-subtitle">ClÃ¡sicos tropicales con un giro de Rio</p>
-                    <div class="menu-ad">Chupitos a 1,50 â‚¬</div>
+                    <p class="menu-subtitle">Clásicos tropicales con un giro de Rio</p>
+                    <div class="menu-ad">Chupitos a 1,50 €</div>
                 </div>
                 <div class="menu-hours">
                     Mar-dom - 14:00 a 03:00
@@ -338,14 +338,14 @@
                     <div class="menu-item">
                         <div>
                             <span>Picanha</span>
-                            <small>Brocheta de picaÃ±a Black Angus</small>
+                            <small>Brocheta de picaña Black Angus</small>
                         </div>
                         <div class="price">7.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>CoraÃ§Ã£o de Galinha</span>
-                            <small>Brocheta de corazÃ³n de pollo</small>
+                            <span>Coração de Galinha</span>
+                            <small>Brocheta de corazón de pollo</small>
                         </div>
                         <div class="price">3.00</div>
                     </div>
@@ -359,7 +359,7 @@
                 </div>
 
                 <div class="menu-card">
-                    <h3>PorÃ§Ãµes</h3>
+                    <h3>Porções</h3>
                     <div class="menu-item">
                         <div>
                             <span>Arroz</span>
@@ -369,7 +369,7 @@
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>FeijÃ£o preto</span>
+                            <span>Feijão preto</span>
                             <small>Alubias negras con especias</small>
                         </div>
                         <div class="price">4.50</div>
@@ -391,7 +391,7 @@
                     <div class="menu-item">
                         <div>
                             <span>Vinagrete</span>
-                            <small>Picadillo de verduras aliÃ±adas</small>
+                            <small>Picadillo de verduras aliñadas</small>
                         </div>
                         <div class="price">2.50</div>
                     </div>
@@ -407,6 +407,23 @@
 
             <footer class="footer-note">Cozy Lounge Bar by La Favela.</footer>
         </div>
-    </body>
+            <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.search = "";
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>    </body>
 </html>
+
+
 

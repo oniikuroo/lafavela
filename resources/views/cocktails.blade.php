@@ -252,7 +252,7 @@
                     <a class="nav-link" href="{{ route('shots') }}">{{ __('site.nav_shots') }}</a>
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
-                        <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
+                        <select aria-label="{{ __('site.language') }}" onchange="setLanguage(this.value)">
                             <option value="es" {{ $currentLang === 'es' ? 'selected' : '' }}>ES</option>
                             <option value="en" {{ $currentLang === 'en' ? 'selected' : '' }}>EN</option>
                             <option value="pt" {{ $currentLang === 'pt' ? 'selected' : '' }}>PT</option>
@@ -430,6 +430,21 @@
 
             <footer class="footer-note">{{ __('site.footer') }}</footer>
         </div>
+        <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.searchParams.delete('lang');
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>
     </body>
 </html>
-
