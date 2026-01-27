@@ -151,6 +151,23 @@
                 text-align: right;
             }
 
+            .menu-ad {
+                margin-top: 16px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #0b3a8a;
+                background: linear-gradient(90deg, rgba(247, 200, 0, 0.25), rgba(255, 138, 42, 0.25));
+                border: 1px solid rgba(11, 58, 138, 0.25);
+                box-shadow: 0 10px 20px rgba(11, 36, 27, 0.12);
+            }
+
             .menu-grid {
                 margin-top: 28px;
                 display: grid;
@@ -230,6 +247,11 @@
                     text-align: left;
                 }
 
+                .menu-ad {
+                    font-size: 11px;
+                    letter-spacing: 0.14em;
+                }
+
                 .menu-grid {
                     grid-template-columns: 1fr;
                 }
@@ -265,6 +287,7 @@
                     <h1 class="menu-title">{{ __('site.menu_heading') }}</h1>
                     <div class="divider" aria-hidden="true"></div>
                     <p class="menu-subtitle">{{ __('site.menu_subtitle') }}</p>
+                    <div class="menu-ad">{{ __('site.menu_shots_ad') }}</div>
                 </div>
                 <div class="menu-hours">
                     {{ __('site.menu_hours') }}
@@ -279,21 +302,14 @@
                             <span>{{ __('site.item_classic_lime') }}</span>
                             <small>{{ __('site.item_classic_lime_desc') }}</small>
                         </div>
-                        <div class="price">8</div>
+                        <div class="price">8.90</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.item_mango_heat') }}</span>
                             <small>{{ __('site.item_mango_heat_desc') }}</small>
                         </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_maracuja') }}</span>
-                            <small>{{ __('site.item_maracuja_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
+                        <div class="price">5.50</div>
                     </div>
                 </div>
 
@@ -301,24 +317,45 @@
                     <h3>{{ __('site.section_small_plates') }}</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_coxinha') }}</span>
-                            <small>{{ __('site.item_coxinha_desc') }}</small>
+                            <span>{{ __('site.item_espetinho_frango') }}</span>
+                            <small>{{ __('site.item_espetinho_frango_desc') }}</small>
                         </div>
-                        <div class="price">7</div>
+                        <div class="price">4.00</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_pao_queijo') }}</span>
-                            <small>{{ __('site.item_pao_queijo_desc') }}</small>
+                            <span>{{ __('site.item_espetinho_frango_bacon') }}</span>
+                            <small>{{ __('site.item_espetinho_frango_bacon_desc') }}</small>
                         </div>
-                        <div class="price">6</div>
+                        <div class="price">5.30</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_ceviche') }}</span>
-                            <small>{{ __('site.item_ceviche_desc') }}</small>
+                            <span>{{ __('site.item_espetinho_chorizo') }}</span>
+                            <small>{{ __('site.item_espetinho_chorizo_desc') }}</small>
                         </div>
-                        <div class="price">12</div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_espetinho_picanha') }}</span>
+                            <small>{{ __('site.item_espetinho_picanha_desc') }}</small>
+                        </div>
+                        <div class="price">7.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_espetinho_corazon') }}</span>
+                            <small>{{ __('site.item_espetinho_corazon_desc') }}</small>
+                        </div>
+                        <div class="price">3.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_espetinho_mixto') }}</span>
+                            <small>{{ __('site.item_espetinho_mixto_desc') }}</small>
+                        </div>
+                        <div class="price">6.00</div>
                     </div>
                 </div>
 
@@ -326,24 +363,45 @@
                     <h3>{{ __('site.section_sweet') }}</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_brigadeiro') }}</span>
-                            <small>{{ __('site.item_brigadeiro_desc') }}</small>
+                            <span>{{ __('site.item_porcoes_arroz') }}</span>
+                            <small>{{ __('site.item_porcoes_arroz_desc') }}</small>
                         </div>
-                        <div class="price">6</div>
+                        <div class="price">3.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_pineapple') }}</span>
-                            <small>{{ __('site.item_pineapple_desc') }}</small>
+                            <span>{{ __('site.item_porcoes_feijao') }}</span>
+                            <small>{{ __('site.item_porcoes_feijao_desc') }}</small>
                         </div>
-                        <div class="price">7</div>
+                        <div class="price">4.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_acai') }}</span>
-                            <small>{{ __('site.item_acai_desc') }}</small>
+                            <span>{{ __('site.item_porcoes_salada') }}</span>
+                            <small>{{ __('site.item_porcoes_salada_desc') }}</small>
                         </div>
-                        <div class="price">8</div>
+                        <div class="price">5.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_porcoes_batata') }}</span>
+                            <small>{{ __('site.item_porcoes_batata_desc') }}</small>
+                        </div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_porcoes_vinagrete') }}</span>
+                            <small>{{ __('site.item_porcoes_vinagrete_desc') }}</small>
+                        </div>
+                        <div class="price">2.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>{{ __('site.item_porcoes_farofa') }}</span>
+                            <small>{{ __('site.item_porcoes_farofa_desc') }}</small>
+                        </div>
+                        <div class="price">2.50</div>
                     </div>
                 </div>
             </section>
