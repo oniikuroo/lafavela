@@ -1,17 +1,16 @@
 ﻿<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ __('site.cocktails_title') }}</title>
+        <title>﻿La Favela | Chupitos</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        <link rel="preload" as="style" href="/build/assets/app-CZsBWhT6.css" /><link rel="modulepreload" as="script" href="/build/assets/app-BXS-Op9n.js" /><link rel="stylesheet" href="/build/assets/app-CZsBWhT6.css" /><script type="module" src="/build/assets/app-BXS-Op9n.js"></script>
         <style>
             :root {
                 --brazil-green: #1a7f3b;
@@ -242,20 +241,20 @@
         </style>
     </head>
     <body>
-        @php($currentLang = app()->getLocale())
-        <div class="page">
+                <div class="page">
             <header class="topbar">
-                <a class="brand" href="{{ url('/') }}">La Favela</a>
+                <a class="brand" href="/es/">La Favela</a>
                 <div class="topbar-right">
-                    <a class="nav-link" href="{{ url('/') }}">{{ __('site.back_home') }}</a>
-                    <a class="nav-link" href="{{ route('menu') }}">{{ __('site.nav_menu') }}</a>
-                    <a class="nav-link" href="{{ route('shots') }}">{{ __('site.nav_shots') }}</a>
+                    <a class="nav-link" href="/es/">Volver al inicio</a>
+                    <a class="nav-link" href="/menu">Menú</a>
+                    <a class="nav-link" href="/cocktails">Cócteles</a>
+                    <a class="nav-link" href="/chupitos">Chupitos</a>
                     <div class="lang-select">
-                        <span>{{ __('site.language') }}</span>
-                        <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
-                            <option value="es" {{ $currentLang === 'es' ? 'selected' : '' }}>ES</option>
-                            <option value="en" {{ $currentLang === 'en' ? 'selected' : '' }}>EN</option>
-                            <option value="pt" {{ $currentLang === 'pt' ? 'selected' : '' }}>PT</option>
+                        <span>Idioma</span>
+                        <select aria-label="Idioma" onchange="window.location=this.value">
+                            <option value="/es/" selected>ES</option>
+                            <option value="/en/" >EN</option>
+                            <option value="/pt/" >PT</option>
                         </select>
                     </div>
                 </div>
@@ -263,172 +262,271 @@
 
             <section class="menu-hero">
                 <div>
-                    <h1 class="menu-title">{{ __('site.cocktails_heading') }}</h1>
+                    <h1 class="menu-title">Chupitos</h1>
                     <div class="divider" aria-hidden="true"></div>
-                    <p class="menu-subtitle">{{ __('site.cocktails_subtitle') }}</p>
+                    <p class="menu-subtitle">Clásicos y especiales de la casa</p>
                 </div>
                 <div class="menu-hours">
-                    {{ __('site.menu_hours') }}
+                    Mar-dom - 14:00 a 03:00
                 </div>
             </section>
 
             <section class="menu-grid">
                 <div class="menu-card">
-                    <h3>{{ __('site.section_house_cocktails') }}</h3>
+                    <h3>Chupitos</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_basil_passion') }}</span>
-                            <small>{{ __('site.item_basil_passion_desc') }}</small>
+                            <span>Apple pie shot</span>
+                            <small>sirup apple pie, vodka o rhum</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_blue_lagoon') }}</span>
-                            <small>{{ __('site.item_blue_lagoon_desc') }}</small>
+                            <span>Sevillano</span>
+                            <small>sirup canela, rhum</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_favela') }}</span>
-                            <small>{{ __('site.item_favela_desc') }}</small>
+                            <span>Mont blanc</span>
+                            <small>Midori, minta blanca, chartreuse</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_deseo_tropical') }}</span>
-                            <small>{{ __('site.item_deseo_tropical_desc') }}</small>
+                            <span>Sao tome</span>
+                            <small>Sirop apple pie, cachaça, rhum</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_long_island') }}</span>
-                            <small>{{ __('site.item_long_island_desc') }}</small>
+                            <span>Brazil rosa</span>
+                            <small>Sirop de rosa, cachaça, melocoton</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_luna_llena') }}</span>
-                            <small>{{ __('site.item_luna_llena_desc') }}</small>
+                            <span>Darkhole</span>
+                            <small>vodka negra, jagermeister</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_leblon') }}</span>
-                            <small>{{ __('site.item_leblon_desc') }}</small>
+                            <span>Fuck off</span>
+                            <small>tequila, jagermeister</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_amazonia') }}</span>
-                            <small>{{ __('site.item_amazonia_desc') }}</small>
+                            <span>Cocoloco</span>
+                            <small>malibu, jagermeister</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_selva_negra') }}</span>
-                            <small>{{ __('site.item_selva_negra_desc') }}</small>
+                            <span>Alloloco</span>
+                            <small>vodka negra, jagermeister, tequila</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_brisa_roja') }}</span>
-                            <small>{{ __('site.item_brisa_roja_desc') }}</small>
+                            <span>Brain tumor</span>
+                            <small>licor melocoton, baileys, granadina</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_sweet_night') }}</span>
-                            <small>{{ __('site.item_sweet_night_desc') }}</small>
+                            <span>Brain hemorage</span>
+                            <small>licor melocoton, baileys, granadina, curaçao azul</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_cara_bacana') }}</span>
-                            <small>{{ __('site.item_cara_bacana_desc') }}</small>
+                            <span>Blowjob</span>
+                            <small>amarreto, baileys, chantilly</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_beso_jaguar') }}</span>
-                            <small>{{ __('site.item_beso_jaguar_desc') }}</small>
+                            <span>Lemon drop</span>
+                            <small>vodka, curaçao azul, lima</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Chupirita</span>
+                            <small>tequila, triple sec, melocoton, borde de sal</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Caipipeach</span>
+                            <small>cachaça, triple sec, melocoton</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Piruleta</span>
+                            <small>licor 43, amarreto, maracuja</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Horny bull</span>
+                            <small>tequila, rhum, vodka</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>ABC</span>
+                            <small>amarreto, baileys, cognac</small>
+                        </div>
+                        <div class="price">—</div>
                     </div>
                 </div>
+
                 <div class="menu-card">
-                    <h3>{{ __('site.section_classic_cocktails') }}</h3>
+                    <h3>Chupitos</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipirinha') }}</span>
-                            <small>{{ __('site.item_caipirinha_desc') }}</small>
+                            <span>Wet Pussy</span>
+                            <small>vodka, melocoton, fresa</small>
                         </div>
-                        <div class="price">8</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipiroska') }}</span>
-                            <small>{{ __('site.item_caipiroska_desc') }}</small>
+                            <span>Guijon</span>
+                            <small>ron miel, casera, lima</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipironmiel') }}</span>
-                            <small>{{ __('site.item_caipironmiel_desc') }}</small>
+                            <span>Orgasm</span>
+                            <small>kalhua, baileys, amareto</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipironmiel_passion') }}</span>
-                            <small>{{ __('site.item_caipironmiel_passion_desc') }}</small>
+                            <span>Bob Marley marijuana</span>
+                            <small>granadina, tequila, absinthe cannabis</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipilito') }}</span>
-                            <small>{{ __('site.item_caipilito_desc') }}</small>
+                            <span>Black russian</span>
+                            <small>vodka, kalhua</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_cachondo') }}</span>
-                            <small>{{ __('site.item_cachondo_desc') }}</small>
+                            <span>Kamikaze</span>
+                            <small>vodka, triple sec, lima</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_pina_colada') }}</span>
-                            <small>{{ __('site.item_pina_colada_desc') }}</small>
+                            <span>Liquid cocaine</span>
+                            <small>rhum, tequila, jagermeister</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_daikiri') }}</span>
-                            <small>{{ __('site.item_daikiri_desc') }}</small>
+                            <span>Pinita</span>
+                            <small>rhum, pina, lima</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Wet Pussy</span>
+                            <small>vodka, melocoton, fresa</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Guiron</span>
+                            <small>ron miel, lima</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Tim</span>
+                            <small>sirop rosa, butterscotch, rhum</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Tybrasa</span>
+                            <small>sirup canela, cacao, rhum, vodka spicy</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Fire-on</span>
+                            <small>rhum pimiento, absenta</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Boyarski</span>
+                            <small>vodka infusada con pimiento, tabasco, fresa</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Escala del diablo</span>
+                            <small>Boyarski, rhum pimiento, absinthe</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Escala de richter</span>
+                            <small>sirup apple pie, rhum, absinthe</small>
+                        </div>
+                        <div class="price">—</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Casa del diablo</span>
+                            <small>rhum pimiento, absinthe</small>
+                        </div>
+                        <div class="price">—</div>
                     </div>
                 </div>
             </section>
 
-            <footer class="footer-note">{{ __('site.footer') }}</footer>
+            <footer class="footer-note">Cozy Lounge Bar by La Favela.</footer>
         </div>
     </body>
 </html>

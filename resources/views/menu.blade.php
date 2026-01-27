@@ -271,6 +271,7 @@
                 <div class="topbar-right">
                     <a class="nav-link" href="{{ url('/') }}">{{ __('site.back_home') }}</a>
                     <a class="nav-link" href="{{ route('cocktails') }}">{{ __('site.nav_cocktails') }}</a>
+                    <a class="nav-link" href="{{ route('shots') }}">{{ __('site.nav_shots') }}</a>
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
@@ -296,7 +297,7 @@
 
             <section class="menu-grid">
                 <div class="menu-card">
-                    <h3>{{ __('site.section_caipirinha') }}</h3>
+                    <h3>Street food</h3>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.item_classic_lime') }}</span>
@@ -314,7 +315,7 @@
                 </div>
 
                 <div class="menu-card">
-                    <h3>{{ __('site.section_small_plates') }}</h3>
+                    <h3>Espetinhos</h3>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.item_espetinho_frango') }}</span>
@@ -360,7 +361,7 @@
                 </div>
 
                 <div class="menu-card">
-                    <h3>{{ __('site.section_sweet') }}</h3>
+                    <h3>Porções</h3>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.item_porcoes_arroz') }}</span>

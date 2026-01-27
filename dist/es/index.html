@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+﻿<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ __('site.site_title') }}</title>
+        <title>﻿La Favela | Bar tropical</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        <link rel="preload" as="style" href="/build/assets/app-CZsBWhT6.css" /><link rel="modulepreload" as="script" href="/build/assets/app-BXS-Op9n.js" /><link rel="stylesheet" href="/build/assets/app-CZsBWhT6.css" /><script type="module" src="/build/assets/app-BXS-Op9n.js"></script>
         <style>
             :root {
                 --brazil-green: #1a7f3b;
@@ -471,22 +470,21 @@
         </style>
     </head>
     <body>
-        @php($currentLang = app()->getLocale())
-        <div class="page">
+                <div class="page">
             <div class="orb" aria-hidden="true"></div>
             <div class="leaf left" aria-hidden="true"></div>
             <div class="leaf right" aria-hidden="true"></div>
 
             <header class="topbar">
-                <a class="brand" href="{{ url('/') }}">La Favela</a>
+                <a class="brand" href="/es/">La Favela</a>
                 <div class="topbar-right">
-                    <div class="location">{{ __('site.location') }}</div>
+                    <div class="location">La Favela Lounge Bar - Alameda, Sevilla</div>
                     <div class="lang-select">
-                        <span>{{ __('site.language') }}</span>
-                        <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
-                            <option value="es" {{ $currentLang === 'es' ? 'selected' : '' }}>ES</option>
-                            <option value="en" {{ $currentLang === 'en' ? 'selected' : '' }}>EN</option>
-                            <option value="pt" {{ $currentLang === 'pt' ? 'selected' : '' }}>PT</option>
+                        <span>Idioma</span>
+                        <select aria-label="Idioma" onchange="window.location=this.value">
+                            <option value="/es/" selected>ES</option>
+                            <option value="/en/" >EN</option>
+                            <option value="/pt/" >PT</option>
                         </select>
                     </div>
                 </div>
@@ -494,7 +492,7 @@
 
             <main class="hero">
                 <section class="label-card" aria-labelledby="label-title">
-                    <span class="label-ribbon">{{ __('site.ribbon') }}</span>
+                    <span class="label-ribbon">Bar estilo Brasilia - Noches tropicales</span>
                     <h1 class="label-title" id="label-title">
                         <span>La Favela</span>
                         <svg class="label-flag" viewBox="0 0 42 28" aria-hidden="true">
@@ -504,40 +502,41 @@
                             <rect x="15" y="13" width="12" height="2" fill="#ffffff" opacity="0.9"/>
                         </svg>
                     </h1>
-                    <div class="label-subtitle">{{ __('site.subtitle') }}</div>
+                    <div class="label-subtitle">Ritmo de samba, calor de caipirinha</div>
                     <div class="label-line" aria-hidden="true"></div>
                     <div class="label-tags">
-                        <span class="tag">{{ __('site.tag_cachaca') }}</span>
-                        <span class="tag">{{ __('site.tag_samba') }}</span>
-                        <span class="tag">{{ __('site.tag_sunset') }}</span>
-                        <span class="tag">{{ __('site.tag_bites') }}</span>
+                        <span class="tag">Cachaça artesanal</span>
+                        <span class="tag">Samba en vivo</span>
+                        <span class="tag">Terraza al atardecer</span>
+                        <span class="tag">Bocados tropicales</span>
                     </div>
                     <div class="label-footer">
-                    <span>{{ __('site.hours') }}</span>
-                        <img class="seal" src="{{ asset('images/favela-logo.png') }}" alt="La Favela logo">
+                    <span>Abierto mar-dom 14:00 - 03:00</span>
+                        <img class="seal" src="/images/favela-logo.png" alt="La Favela logo">
                     </div>
                 </section>
 
                 <div class="info-stack">
-                <div class="shots-ad"><span>{{ __('site.home_shots_ad') }}</span></div>
+                <div class="shots-ad"><span>Chupitos a 1.50</span></div>
                     <section class="info-panel">
-                        <h2>{{ __('site.visit_title') }}</h2>
-                        <p>{{ __('site.visit_intro') }}</p>
+                        <h2>Visita La Favela</h2>
+                        <p>Luces brillantes, brisas cálidas y el ritmo de Brasil. Brinda con cócteles frescos, comparte tapas y deja que la noche fluya.</p>
                         <p>
                             <a class="address-link" href="https://maps.app.goo.gl/h2iAN9fyDTt7f8Mt6" target="_blank" rel="noopener noreferrer">
-                                {{ __('site.visit_address') }}
+                                C. Amor de Dios, 56, Casco Antiguo, 41002 Sevilla
                             </a>
                         </p>
                         <div class="cta-row">
-                            <a class="cta primary" href="{{ route('cocktails') }}">{{ __('site.cta_cocktails') }}</a>
-                            <a class="cta secondary" href="{{ route('menu') }}">{{ __('site.cta_menu') }}</a>
-                            <a class="cta secondary" href="{{ route('shots') }}">{{ __('site.cta_shots') }}</a>
+                            <a class="cta primary" href="/cocktails">Ver los cócteles</a>
+                            <a class="cta secondary" href="/menu">Ver el menú</a>
+                            <a class="cta secondary" href="/chupitos">Ver chupitos</a>
                         </div>
                     </section>
                 </div>
             </main>
 
-            <footer class="footer">{{ __('site.footer') }}</footer>
+            <footer class="footer">Cozy Lounge Bar by La Favela.</footer>
         </div>
     </body>
 </html>
+

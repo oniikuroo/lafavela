@@ -15,6 +15,10 @@ Route::get('/cocktails', function () {
     return view('cocktails');
 })->name('cocktails');
 
+Route::get('/chupitos', function () {
+    return view('shots');
+})->name('shots');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

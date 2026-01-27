@@ -1,17 +1,16 @@
 ﻿<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ __('site.cocktails_title') }}</title>
+        <title>﻿La Favela | Menu</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        <link rel="preload" as="style" href="/build/assets/app-CZsBWhT6.css" /><link rel="modulepreload" as="script" href="/build/assets/app-BXS-Op9n.js" /><link rel="stylesheet" href="/build/assets/app-CZsBWhT6.css" /><script type="module" src="/build/assets/app-BXS-Op9n.js"></script>
         <style>
             :root {
                 --brazil-green: #1a7f3b;
@@ -151,6 +150,23 @@
                 text-align: right;
             }
 
+            .menu-ad {
+                margin-top: 16px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #0b3a8a;
+                background: linear-gradient(90deg, rgba(247, 200, 0, 0.25), rgba(255, 138, 42, 0.25));
+                border: 1px solid rgba(11, 58, 138, 0.25);
+                box-shadow: 0 10px 20px rgba(11, 36, 27, 0.12);
+            }
+
             .menu-grid {
                 margin-top: 28px;
                 display: grid;
@@ -230,6 +246,11 @@
                     text-align: left;
                 }
 
+                .menu-ad {
+                    font-size: 11px;
+                    letter-spacing: 0.14em;
+                }
+
                 .menu-grid {
                     grid-template-columns: 1fr;
                 }
@@ -242,20 +263,19 @@
         </style>
     </head>
     <body>
-        @php($currentLang = app()->getLocale())
-        <div class="page">
+                <div class="page">
             <header class="topbar">
-                <a class="brand" href="{{ url('/') }}">La Favela</a>
+                <a class="brand" href="/pt/">La Favela</a>
                 <div class="topbar-right">
-                    <a class="nav-link" href="{{ url('/') }}">{{ __('site.back_home') }}</a>
-                    <a class="nav-link" href="{{ route('menu') }}">{{ __('site.nav_menu') }}</a>
-                    <a class="nav-link" href="{{ route('shots') }}">{{ __('site.nav_shots') }}</a>
+                    <a class="nav-link" href="/pt/">Voltar ao início</a>
+                    <a class="nav-link" href="/cocktails">Coquetéis</a>
+                    <a class="nav-link" href="/chupitos">Doses</a>
                     <div class="lang-select">
-                        <span>{{ __('site.language') }}</span>
-                        <select aria-label="{{ __('site.language') }}" onchange="window.location='{{ url()->current() }}?lang=' + this.value;">
-                            <option value="es" {{ $currentLang === 'es' ? 'selected' : '' }}>ES</option>
-                            <option value="en" {{ $currentLang === 'en' ? 'selected' : '' }}>EN</option>
-                            <option value="pt" {{ $currentLang === 'pt' ? 'selected' : '' }}>PT</option>
+                        <span>Idioma</span>
+                        <select aria-label="Idioma" onchange="window.location=this.value">
+                            <option value="/es/" >ES</option>
+                            <option value="/en/" >EN</option>
+                            <option value="/pt/" selected>PT</option>
                         </select>
                     </div>
                 </div>
@@ -263,172 +283,129 @@
 
             <section class="menu-hero">
                 <div>
-                    <h1 class="menu-title">{{ __('site.cocktails_heading') }}</h1>
+                    <h1 class="menu-title">Menu</h1>
                     <div class="divider" aria-hidden="true"></div>
-                    <p class="menu-subtitle">{{ __('site.cocktails_subtitle') }}</p>
+                    <p class="menu-subtitle">Clássicos tropicais com um toque do Rio</p>
+                    <div class="menu-ad">Doses a 1,50 €</div>
                 </div>
                 <div class="menu-hours">
-                    {{ __('site.menu_hours') }}
+                    Ter-dom - 14:00 às 03:00
                 </div>
             </section>
 
             <section class="menu-grid">
                 <div class="menu-card">
-                    <h3>{{ __('site.section_house_cocktails') }}</h3>
+                    <h3>Street food</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_basil_passion') }}</span>
-                            <small>{{ __('site.item_basil_passion_desc') }}</small>
+                            <span>Hambúrguer completo</span>
+                            <small>Carne ou frango com queijo, alface, tomate e batatas fritas</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">8.90</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_blue_lagoon') }}</span>
-                            <small>{{ __('site.item_blue_lagoon_desc') }}</small>
+                            <span>Hot Dog Brasileiro</span>
+                            <small>Cachorro-quente ao estilo La Favela</small>
                         </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_favela') }}</span>
-                            <small>{{ __('site.item_favela_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_deseo_tropical') }}</span>
-                            <small>{{ __('site.item_deseo_tropical_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_long_island') }}</span>
-                            <small>{{ __('site.item_long_island_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_luna_llena') }}</span>
-                            <small>{{ __('site.item_luna_llena_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_leblon') }}</span>
-                            <small>{{ __('site.item_leblon_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_amazonia') }}</span>
-                            <small>{{ __('site.item_amazonia_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_selva_negra') }}</span>
-                            <small>{{ __('site.item_selva_negra_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_brisa_roja') }}</span>
-                            <small>{{ __('site.item_brisa_roja_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_sweet_night') }}</span>
-                            <small>{{ __('site.item_sweet_night_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_cara_bacana') }}</span>
-                            <small>{{ __('site.item_cara_bacana_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_beso_jaguar') }}</span>
-                            <small>{{ __('site.item_beso_jaguar_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
+                        <div class="price">5.50</div>
                     </div>
                 </div>
+
                 <div class="menu-card">
-                    <h3>{{ __('site.section_classic_cocktails') }}</h3>
+                    <h3>Espetinhos</h3>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipirinha') }}</span>
-                            <small>{{ __('site.item_caipirinha_desc') }}</small>
+                            <span>Frango</span>
+                            <small>Espetinho de frango</small>
                         </div>
-                        <div class="price">8</div>
+                        <div class="price">4.00</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipiroska') }}</span>
-                            <small>{{ __('site.item_caipiroska_desc') }}</small>
+                            <span>Frango com bacon</span>
+                            <small>Espetinho de frango com bacon</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">5.30</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipironmiel') }}</span>
-                            <small>{{ __('site.item_caipironmiel_desc') }}</small>
+                            <span>Chorizo</span>
+                            <small>Espetinho de chorizo</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">4.00</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipironmiel_passion') }}</span>
-                            <small>{{ __('site.item_caipironmiel_passion_desc') }}</small>
+                            <span>Picanha</span>
+                            <small>Espetinho de picanha Black Angus</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">7.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_caipilito') }}</span>
-                            <small>{{ __('site.item_caipilito_desc') }}</small>
+                            <span>Coração de galinha</span>
+                            <small>Espetinho de coração de frango</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">3.00</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_cachondo') }}</span>
-                            <small>{{ __('site.item_cachondo_desc') }}</small>
+                            <span>Misto</span>
+                            <small>Espetinho de carnes variadas</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">6.00</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <h3>Porções</h3>
+                    <div class="menu-item">
+                        <div>
+                            <span>Arroz</span>
+                            <small>Arroz cozido com alho e óleo</small>
+                        </div>
+                        <div class="price">3.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_pina_colada') }}</span>
-                            <small>{{ __('site.item_pina_colada_desc') }}</small>
+                            <span>Feijão preto</span>
+                            <small>Feijão preto com especiarias</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">4.50</div>
                     </div>
                     <div class="menu-item">
                         <div>
-                            <span>{{ __('site.item_daikiri') }}</span>
-                            <small>{{ __('site.item_daikiri_desc') }}</small>
+                            <span>Salada fresca</span>
+                            <small>Salada fresca da casa</small>
                         </div>
-                        <div class="price">9</div>
+                        <div class="price">5.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Batata frita</span>
+                            <small>Batatas crocantes</small>
+                        </div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Vinagrete</span>
+                            <small>Legumes picados temperados</small>
+                        </div>
+                        <div class="price">2.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Farofa</span>
+                            <small>Farinha de mandioca torrada</small>
+                        </div>
+                        <div class="price">2.50</div>
                     </div>
                 </div>
             </section>
 
-            <footer class="footer-note">{{ __('site.footer') }}</footer>
+            <footer class="footer-note">Cozy Lounge Bar by La Favela.</footer>
         </div>
     </body>
 </html>
