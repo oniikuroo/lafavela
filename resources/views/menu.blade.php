@@ -378,7 +378,7 @@
                 </div>
 
                 <div class="menu-card">
-                    <h3>Porções</h3>
+                    <h3>PorÃ§Ãµes</h3>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.item_porcoes_arroz') }}</span>
