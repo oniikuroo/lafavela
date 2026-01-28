@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>La Favela | Menu</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="preload" as="style" href="/build/assets/app-CZsBWhT6.css" /><link rel="modulepreload" as="script" href="/build/assets/app-BXS-Op9n.js" /><link rel="stylesheet" href="/build/assets/app-CZsBWhT6.css" /><script type="module" src="/build/assets/app-BXS-Op9n.js"></script>
+        <style>
+            :root {
+                --brazil-green: #1a7f3b;
+                --brazil-yellow: #f7c800;
+                --brazil-blue: #0b3a8a;
+                --sunset: #ff8a2a;
+                --sand: #fff3cd;
+                --deep: #0b241b;
+                --teal: #0f5d4c;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                font-family: "Sora", "Segoe UI", sans-serif;
+                color: var(--deep);
+                background:
+                    radial-gradient(600px 420px at 10% 15%, #f7c80055 0%, transparent 70%),
+                    radial-gradient(520px 380px at 90% 10%, #0b3a8a55 0%, transparent 65%),
+                    radial-gradient(500px 340px at 70% 90%, #1a7f3b55 0%, transparent 70%),
+                    linear-gradient(145deg, #fff7de 0%, #ffe9b2 42%, #fff3cd 100%);
+            }
+
+            .page {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                padding: 32px 24px 56px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .brand {
+                font-family: "Bebas Neue", "Sora", sans-serif;
+                font-size: 32px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .nav-link {
+                font-size: 12px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: var(--brazil-blue);
+                text-decoration: none;
+                padding: 10px 14px;
+                border-radius: 999px;
+                border: 2px solid rgba(11, 58, 138, 0.3);
+                background: rgba(255, 255, 255, 0.55);
+                transition: transform 200ms ease, box-shadow 200ms ease;
+            }
+
+            .nav-link:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 24px rgba(11, 58, 138, 0.25);
+            }
+
+            .topbar-right {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                    flex-wrap: wrap;
+                }
+.lang-select {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 11px;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: var(--brazil-blue);
+            }
+
+            .lang-select select {
+                appearance: none;
+                border-radius: 999px;
+                border: 2px solid rgba(11, 58, 138, 0.3);
+                background: rgba(255, 255, 255, 0.7);
+                padding: 8px 32px 8px 14px;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--brazil-blue);
+                cursor: pointer;
+            }
+
+            .menu-hero {
+                margin-top: 32px;
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 24px;
+                align-items: end;
+            }
+
+            .menu-title {
+                font-family: "Bebas Neue", "Sora", sans-serif;
+                font-size: clamp(44px, 8vw, 88px);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: var(--brazil-green);
+                margin: 0;
+            }
+
+            .menu-subtitle {
+                margin: 10px 0 0;
+                font-size: 16px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--brazil-blue);
+                font-weight: 600;
+            }
+
+            .menu-hours {
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 18px;
+                padding: 18px 20px;
+                border: 1px solid rgba(26, 127, 59, 0.25);
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-size: 12px;
+                font-weight: 700;
+                text-align: right;
+            }
+
+            .menu-ad {
+                margin-top: 16px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #0b3a8a;
+                background: linear-gradient(90deg, rgba(247, 200, 0, 0.25), rgba(255, 138, 42, 0.25));
+                border: 1px solid rgba(11, 58, 138, 0.25);
+                box-shadow: 0 10px 20px rgba(11, 36, 27, 0.12);
+            }
+
+            .menu-grid {
+                margin-top: 28px;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 22px;
+            }
+
+            .menu-card {
+                background: rgba(255, 255, 255, 0.75);
+                border-radius: 22px;
+                padding: 22px 22px 18px;
+                border: 1px solid rgba(15, 93, 76, 0.2);
+                box-shadow: 0 18px 36px rgba(11, 36, 27, 0.12);
+                animation: fade 800ms ease forwards;
+            }
+
+            .menu-card h3 {
+                margin: 0 0 16px;
+                font-size: 18px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--teal);
+            }
+
+            .menu-item {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 14px;
+                font-size: 14px;
+            }
+
+            .menu-item span {
+                font-weight: 600;
+            }
+
+            .menu-item small {
+                display: block;
+                font-size: 12px;
+                color: rgba(11, 36, 27, 0.7);
+                margin-top: 4px;
+            }
+
+            .price {
+                font-weight: 700;
+                color: var(--brazil-blue);
+            }
+
+            .divider {
+                height: 3px;
+                border-radius: 999px;
+                background: linear-gradient(90deg, var(--brazil-green), var(--brazil-yellow), var(--brazil-blue));
+                margin-top: 6px;
+            }
+
+            .footer-note {
+                margin-top: 32px;
+                text-transform: uppercase;
+                letter-spacing: 0.18em;
+                font-size: 11px;
+                color: rgba(11, 36, 27, 0.7);
+                text-align: center;
+            }
+
+            @keyframes fade {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            @media (max-width: 900px) {
+                .menu-hero {
+                    grid-template-columns: 1fr;
+                    align-items: start;
+                }
+
+                .menu-hours {
+                    text-align: left;
+                }
+
+                .menu-ad {
+                    font-size: 11px;
+                    letter-spacing: 0.14em;
+                }
+
+                .menu-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                                .topbar-right {
+                    width: 100%;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                }
+
+                .lang-select {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                .lang-select select {
+                    width: 100%;
+                }}
+        
+            @media (max-width: 600px) {
+                .nav-link {
+                    font-size: 11px;
+                    padding: 8px 10px;
+                }
+
+                .location {
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                }
+            }        </style>
+    </head>
+    <body>
+                <div class="page">
+            <header class="topbar">
+                <a class="brand" href="/pt/">La Favela</a>
+                <div class="topbar-right">
+                    <a class="nav-link" href="/pt/">Voltar ao início</a>
+                    <a class="nav-link" href="/cocktails">Coquetéis</a>
+                    <a class="nav-link" href="/chupitos">Doses</a>
+                    <div class="lang-select">
+                        <span>Idioma</span>
+                        <select aria-label="Idioma" onchange="setLanguage(this.value)">
+                            <option value="es" >ES</option>
+                            <option value="en" >EN</option>
+                            <option value="pt" selected>PT</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <section class="menu-hero">
+                <div>
+                    <h1 class="menu-title">Menu</h1>
+                    <div class="divider" aria-hidden="true"></div>
+                    <p class="menu-subtitle">Clássicos tropicais com um toque do Rio</p>
+                    <div class="menu-ad">Doses a 1,50 �,�</div>
+                </div>
+                <div class="menu-hours">
+                    Ter-dom - 14:00 às 03:00
+                </div>
+            </section>
+
+            <section class="menu-grid">
+                <div class="menu-card">
+                    <h3>Street food</h3>
+                    <div class="menu-item">
+                        <div>
+                            <span>Hambúrguer completo</span>
+                            <small>Carne ou frango com queijo, alface, tomate e batatas fritas</small>
+                        </div>
+                        <div class="price">8.90</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Hot Dog Brasileiro</span>
+                            <small>Cachorro-quente ao estilo La Favela</small>
+                        </div>
+                        <div class="price">5.50</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <h3>Espetinhos</h3>
+                    <div class="menu-item">
+                        <div>
+                            <span>Frango</span>
+                            <small>Espetinho de frango</small>
+                        </div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Frango com bacon</span>
+                            <small>Espetinho de frango com bacon</small>
+                        </div>
+                        <div class="price">5.30</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Chorizo</span>
+                            <small>Espetinho de chorizo</small>
+                        </div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Picanha</span>
+                            <small>Espetinho de picanha Black Angus</small>
+                        </div>
+                        <div class="price">7.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Coração de galinha</span>
+                            <small>Espetinho de coração de frango</small>
+                        </div>
+                        <div class="price">3.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Misto</span>
+                            <small>Espetinho de carnes variadas</small>
+                        </div>
+                        <div class="price">6.00</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <h3>Porções</h3>
+                    <div class="menu-item">
+                        <div>
+                            <span>Arroz</span>
+                            <small>Arroz cozido com alho e óleo</small>
+                        </div>
+                        <div class="price">3.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Feijão preto</span>
+                            <small>Feijão preto com especiarias</small>
+                        </div>
+                        <div class="price">4.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Salada fresca</span>
+                            <small>Salada fresca da casa</small>
+                        </div>
+                        <div class="price">5.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Batata frita</span>
+                            <small>Batatas crocantes</small>
+                        </div>
+                        <div class="price">4.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Vinagrete</span>
+                            <small>Legumes picados temperados</small>
+                        </div>
+                        <div class="price">2.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <span>Farofa</span>
+                            <small>Farinha de mandioca torrada</small>
+                        </div>
+                        <div class="price">2.50</div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer-note">Cozy Lounge Bar by La Favela.</footer>
+        </div>
+            <script>
+            function setLanguage(lang) {
+                const url = new URL(window.location.href);
+                const path = url.pathname;
+                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+
+                if (match) {
+                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
+                    url.search = "";
+                } else {
+                    url.searchParams.set('lang', lang);
+                }
+
+                window.location.href = url.toString();
+            }
+        </script>    </body>
+</html>
+
+
+
+
+
