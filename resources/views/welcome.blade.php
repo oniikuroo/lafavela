@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -535,7 +535,7 @@
                     </div>
                     <div class="label-footer">
                     <span>{{ __('site.hours') }}</span>
-                        <img class="seal" src="{{ asset('images/favela-logo.png') }}" alt="La Favela logo">
+                        <img class="seal" src="{{ asset('images/favela-logo-v2.png') }}" alt="La Favela logo">
                     </div>
                 </section>
 
