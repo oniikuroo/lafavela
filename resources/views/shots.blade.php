@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -298,126 +298,126 @@
                             <span>{{ __('site.shot_apple_pie') }}</span>
                             <small>{{ __('site.shot_apple_pie_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_sevillano') }}</span>
                             <small>{{ __('site.shot_sevillano_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_mont_blanc') }}</span>
                             <small>{{ __('site.shot_mont_blanc_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_sao_tome') }}</span>
                             <small>{{ __('site.shot_sao_tome_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_brazil_rosa') }}</span>
                             <small>{{ __('site.shot_brazil_rosa_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_darkhole') }}</span>
                             <small>{{ __('site.shot_darkhole_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_fuck_off') }}</span>
                             <small>{{ __('site.shot_fuck_off_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_cocoloco') }}</span>
                             <small>{{ __('site.shot_cocoloco_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_alloloco') }}</span>
                             <small>{{ __('site.shot_alloloco_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_brain_tumor') }}</span>
                             <small>{{ __('site.shot_brain_tumor_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_brain_hemorage') }}</span>
                             <small>{{ __('site.shot_brain_hemorage_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_blowjob') }}</span>
                             <small>{{ __('site.shot_blowjob_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_lemon_drop') }}</span>
                             <small>{{ __('site.shot_lemon_drop_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_chupirita') }}</span>
                             <small>{{ __('site.shot_chupirita_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_caipipeach') }}</span>
                             <small>{{ __('site.shot_caipipeach_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_piruleta') }}</span>
                             <small>{{ __('site.shot_piruleta_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_horny_bull') }}</span>
                             <small>{{ __('site.shot_horny_bull_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_abc') }}</span>
                             <small>{{ __('site.shot_abc_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                 </div>
 
@@ -428,119 +428,119 @@
                             <span>{{ __('site.shot_wet_pussy') }}</span>
                             <small>{{ __('site.shot_wet_pussy_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_guijon') }}</span>
                             <small>{{ __('site.shot_guijon_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_orgasm') }}</span>
                             <small>{{ __('site.shot_orgasm_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_bob_marley') }}</span>
                             <small>{{ __('site.shot_bob_marley_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_black_russian') }}</span>
                             <small>{{ __('site.shot_black_russian_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_kamikaze') }}</span>
                             <small>{{ __('site.shot_kamikaze_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_liquid_cocaine') }}</span>
                             <small>{{ __('site.shot_liquid_cocaine_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_pinita') }}</span>
                             <small>{{ __('site.shot_pinita_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_wet_pussy_alt') }}</span>
                             <small>{{ __('site.shot_wet_pussy_alt_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_guiron') }}</span>
                             <small>{{ __('site.shot_guiron_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_tim') }}</span>
                             <small>{{ __('site.shot_tim_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_tybrasa') }}</span>
                             <small>{{ __('site.shot_tybrasa_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_fire_on') }}</span>
                             <small>{{ __('site.shot_fire_on_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_boyarski') }}</span>
                             <small>{{ __('site.shot_boyarski_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_escala_diablo') }}</span>
                             <small>{{ __('site.shot_escala_diablo_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_escala_richter') }}</span>
                             <small>{{ __('site.shot_escala_richter_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                     <div class="menu-item">
                         <div>
                             <span>{{ __('site.shot_casa_diablo') }}</span>
                             <small>{{ __('site.shot_casa_diablo_desc') }}</small>
                         </div>
-                        <div class="price">-</div>
+                        <div class="price">3</div>
                     </div>
                 </div>
             </section>
