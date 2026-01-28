@@ -465,7 +465,28 @@
 
                 .topbar-right {
                     width: 100%;
-                    justify-content: space-between;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                }
+
+                .lang-select {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                .lang-select select {
+                    width: 100%;
+                }
+
+                .location {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .location {
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
                 }
             }
         </style>

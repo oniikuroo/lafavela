@@ -85,9 +85,9 @@
                 display: flex;
                 align-items: center;
                 gap: 16px;
-            }
-
-            .lang-select {
+                    flex-wrap: wrap;
+                }
+.lang-select {
                 display: inline-flex;
                 align-items: center;
                 gap: 10px;
@@ -233,12 +233,32 @@
                     grid-template-columns: 1fr;
                 }
 
-                .topbar-right {
+                                .topbar-right {
                     width: 100%;
-                    justify-content: space-between;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
                 }
-            }
-        </style>
+
+                .lang-select {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                .lang-select select {
+                    width: 100%;
+                }}
+        
+            @media (max-width: 600px) {
+                .nav-link {
+                    font-size: 11px;
+                    padding: 8px 10px;
+                }
+
+                .location {
+                    font-size: 12px;
+                    letter-spacing: 0.1em;
+                }
+            }        </style>
     </head>
     <body>
                 <div class="page">
@@ -445,6 +465,8 @@
             }
         </script>    </body>
 </html>
+
+
 
 
 

@@ -236,7 +236,24 @@
 
                 .topbar-right {
                     width: 100%;
-                    justify-content: space-between;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                }
+
+                .lang-select {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                .lang-select select {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .nav-link {
+                    font-size: 11px;
+                    padding: 8px 10px;
                 }
             }
         </style>
