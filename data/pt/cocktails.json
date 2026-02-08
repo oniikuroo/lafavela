@@ -1,0 +1,122 @@
+{
+  "title": "Coquetéis",
+  "subtitle": "Assinaturas da casa com um toque tropical",
+  "hours": "Ter-dom - 14:00 às 03:00",
+  "sections": [
+    {
+      "title": "Coquetéis da casa",
+      "items": [
+        {
+          "name": "Basil Passion",
+          "description": "Cachaça, Amaretto, Morango, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Blue Lagoon",
+          "description": "Vodka, Gin, Lima, Curaçao Blue",
+          "price": "9"
+        },
+        {
+          "name": "Favela",
+          "description": "Vodka, Rum Com Mel, Maracujá, Abacaxi, Coco, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Desejo Tropical",
+          "description": "Vodka, Maracujá, Hortelã, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Long Island Iced Tea",
+          "description": "Vodka, Rum, Tequila, Gin, Triple Sec, Lima, Coca-Cola",
+          "price": "9"
+        },
+        {
+          "name": "Lua Cheia",
+          "description": "Vodka Preto, Lima, Granadina",
+          "price": "9"
+        },
+        {
+          "name": "Leblon",
+          "description": "Cachaça, Suco De Goiaba, Coco, Canela, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Amazônia",
+          "description": "Whisky, Amaretto, Kiwi, Maracujá, Limonada",
+          "price": "9"
+        },
+        {
+          "name": "Selva Negra",
+          "description": "Vodka Preto, Limonada, Morango, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Brisa Vermelha",
+          "description": "Rum, Morango, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Sweet Night",
+          "description": "Whisky, Amaretto, Maracujá, Banana, Pêssego",
+          "price": "9"
+        },
+        {
+          "name": "Cara Bacana",
+          "description": "Tequila, Jagermeister, Absinto, Suco De Pêssego",
+          "price": "9"
+        },
+        {
+          "name": "Beijo do Jaguar",
+          "description": "Vodka, Fireball, Absinto, Morango, Suco De Pêssego",
+          "price": "9"
+        }
+      ]
+    },
+    {
+      "title": "Coquetéis Clássicos",
+      "items": [
+        {
+          "name": "Caipirinha",
+          "description": "Lima, Açúcar, Cachaça, Caseira",
+          "price": "8"
+        },
+        {
+          "name": "Caipiroska",
+          "description": "Lima, Açúcar, Vodka, Caseira",
+          "price": "9"
+        },
+        {
+          "name": "Caipironmiel",
+          "description": "Lima, Açúcar, Rum Mel, Caseira",
+          "price": "9"
+        },
+        {
+          "name": "Caipironmiel passion",
+          "description": "Lima, Açúcar, Rum Mel, Cachaça, Caseira",
+          "price": "9"
+        },
+        {
+          "name": "Caipilito",
+          "description": "Lima, Açúcar, Cachaça, Salitos Azul",
+          "price": "9"
+        },
+        {
+          "name": "Cachondo",
+          "description": "Lima, Açúcar, Cachaça, Vodka Preto, Salitos Morango",
+          "price": "9"
+        },
+        {
+          "name": "Pina Colada",
+          "description": "Rum, Abacaxi, Coco, Lima",
+          "price": "9"
+        },
+        {
+          "name": "Daikiri",
+          "description": "Rum Branco, Lima, Açúcar",
+          "price": "9"
+        }
+      ]
+    }
+  ]
+}

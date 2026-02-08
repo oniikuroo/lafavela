@@ -1,0 +1,93 @@
+{
+  "title": "Menu",
+  "subtitle": "Clássicos tropicais com um toque do Rio",
+  "hours": "Ter-dom - 14:00 às 03:00",
+  "sections": [
+    {
+      "title": "Street food",
+      "items": [
+        {
+          "name": "Hambúrguer completo",
+          "description": "Carne ou frango com queijo, alface, tomate e batatas fritas",
+          "price": "8.90"
+        },
+        {
+          "name": "Hot Dog Brasileiro",
+          "description": "Cachorro-quente ao estilo La Favela",
+          "price": "5.50"
+        }
+      ]
+    },
+    {
+      "title": "Espetinhos",
+      "items": [
+        {
+          "name": "Frango",
+          "description": "Espetinho de frango",
+          "price": "4.00"
+        },
+        {
+          "name": "Frango com bacon",
+          "description": "Espetinho de frango com bacon",
+          "price": "5.30"
+        },
+        {
+          "name": "Chorizo",
+          "description": "Espetinho de chorizo",
+          "price": "4.00"
+        },
+        {
+          "name": "Picanha",
+          "description": "Espetinho de picanha Black Angus",
+          "price": "7.50"
+        },
+        {
+          "name": "Coração de galinha",
+          "description": "Espetinho de coração de frango",
+          "price": "3.00"
+        },
+        {
+          "name": "Misto",
+          "description": "Espetinho de carnes variadas",
+          "price": "6.00"
+        }
+      ]
+    },
+    {
+      "title": "Porções",
+      "items": [
+        {
+          "name": "Arroz",
+          "description": "Arroz cozido com alho e óleo",
+          "price": "3.50"
+        },
+        {
+          "name": "Feijão preto",
+          "description": "Feijão preto com especiarias",
+          "price": "4.50"
+        },
+        {
+          "name": "Salada fresca",
+          "description": "Salada fresca da casa",
+          "price": "5.00"
+        },
+        {
+          "name": "Batata frita",
+          "description": "Batatas crocantes",
+          "price": "4.00"
+        },
+        {
+          "name": "Vinagrete",
+          "description": "Legumes picados temperados",
+          "price": "2.50"
+        },
+        {
+          "name": "Farofa",
+          "description": "Farinha de mandioca torrada",
+          "price": "2.50"
+        }
+      ]
+    }
+  ],
+  "ad": "Doses a 1,50 �,�"
+}

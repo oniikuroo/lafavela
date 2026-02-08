@@ -1,0 +1,122 @@
+{
+  "title": "Cocktails",
+  "subtitle": "House signatures with a tropical kick",
+  "hours": "Tue-Sun - 14:00 to 03:00",
+  "sections": [
+    {
+      "title": "House Cocktails",
+      "items": [
+        {
+          "name": "Basil Passion",
+          "description": "Cachaca, Amaretto, Strawberry, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Blue Lagoon",
+          "description": "Vodka, Gin, Lime, Blue Curacao",
+          "price": "9"
+        },
+        {
+          "name": "Favela",
+          "description": "Vodka, Honey Rum, Passion Fruit, Pineapple, Coconut, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Tropical Desire",
+          "description": "Vodka, Passion Fruit, Mint, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Long Island Iced Tea",
+          "description": "Vodka, Rum, Tequila, Gin, Triple Sec, Lime, Coca-Cola",
+          "price": "9"
+        },
+        {
+          "name": "Full Moon",
+          "description": "Black Vodka, Lime, Grenadine",
+          "price": "9"
+        },
+        {
+          "name": "Leblon",
+          "description": "Cachaca, Guava Juice, Coconut, Cinnamon, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Amazonia",
+          "description": "Whisky, Amaretto, Kiwi, Passion Fruit, Lemonade",
+          "price": "9"
+        },
+        {
+          "name": "Black Jungle",
+          "description": "Black Vodka, Lemonade, Strawberry, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Red Breeze",
+          "description": "Rum, Strawberry, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Sweet Night",
+          "description": "Whisky, Amaretto, Passion Fruit, Banana, Peach",
+          "price": "9"
+        },
+        {
+          "name": "Cara Bacana",
+          "description": "Tequila, Jagermeister, Absinthe, Peach Juice",
+          "price": "9"
+        },
+        {
+          "name": "Jaguar Kiss",
+          "description": "Vodka, Fireball, Absinthe, Strawberry, Peach Juice",
+          "price": "9"
+        }
+      ]
+    },
+    {
+      "title": "Classic Cocktails",
+      "items": [
+        {
+          "name": "Caipirinha",
+          "description": "Lime, Sugar, Cachaca, House-Made",
+          "price": "8"
+        },
+        {
+          "name": "Caipiroska",
+          "description": "Lime, Sugar, Vodka, House-Made",
+          "price": "9"
+        },
+        {
+          "name": "Caipironmiel",
+          "description": "Lime, Sugar, Honey Rum, House-Made",
+          "price": "9"
+        },
+        {
+          "name": "Caipironmiel passion",
+          "description": "Lime, Sugar, Honey Rum, Cachaca, House-Made",
+          "price": "9"
+        },
+        {
+          "name": "Caipilito",
+          "description": "Lime, Sugar, Cachaca, Salitos Blue",
+          "price": "9"
+        },
+        {
+          "name": "Cachondo",
+          "description": "Lime, Sugar, Cachaca, Black Vodka, Salitos Strawberry",
+          "price": "9"
+        },
+        {
+          "name": "Pina Colada",
+          "description": "Rum, Pineapple, Coconut, Lime",
+          "price": "9"
+        },
+        {
+          "name": "Daikiri",
+          "description": "White Rum, Lime, Sugar",
+          "price": "9"
+        }
+      ]
+    }
+  ]
+}

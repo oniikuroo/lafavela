@@ -1,0 +1,93 @@
+{
+  "title": "Menu",
+  "subtitle": "Tropical classics with a Rio twist",
+  "hours": "Tue-Sun - 14:00 to 03:00",
+  "sections": [
+    {
+      "title": "Street food",
+      "items": [
+        {
+          "name": "Loaded Burger",
+          "description": "Beef or chicken with cheese, lettuce, tomato, and fries",
+          "price": "8.90"
+        },
+        {
+          "name": "Brazilian Hot Dog",
+          "description": "La Favela-style hot dog",
+          "price": "5.50"
+        }
+      ]
+    },
+    {
+      "title": "Espetinhos",
+      "items": [
+        {
+          "name": "Chicken",
+          "description": "Chicken skewer",
+          "price": "4.00"
+        },
+        {
+          "name": "Chicken with Bacon",
+          "description": "Chicken skewer with bacon",
+          "price": "5.30"
+        },
+        {
+          "name": "Chorizo",
+          "description": "Chorizo skewer",
+          "price": "4.00"
+        },
+        {
+          "name": "Picanha",
+          "description": "Black Angus picanha skewer",
+          "price": "7.50"
+        },
+        {
+          "name": "Chicken Heart",
+          "description": "Chicken heart skewer",
+          "price": "3.00"
+        },
+        {
+          "name": "Mixed",
+          "description": "Mixed meat skewer",
+          "price": "6.00"
+        }
+      ]
+    },
+    {
+      "title": "Porções",
+      "items": [
+        {
+          "name": "Rice",
+          "description": "Rice cooked with garlic and oil",
+          "price": "3.50"
+        },
+        {
+          "name": "Black beans",
+          "description": "Black beans with spices",
+          "price": "4.50"
+        },
+        {
+          "name": "Fresh salad",
+          "description": "House fresh salad",
+          "price": "5.00"
+        },
+        {
+          "name": "Fries",
+          "description": "Crispy potatoes",
+          "price": "4.00"
+        },
+        {
+          "name": "Vinagrete",
+          "description": "Chopped seasoned vegetables",
+          "price": "2.50"
+        },
+        {
+          "name": "Farofa",
+          "description": "Toasted cassava flour",
+          "price": "2.50"
+        }
+      ]
+    }
+  ],
+  "ad": "Shots for 1.50 �,�"
+}

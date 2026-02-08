@@ -1,0 +1,8 @@
+/admin/* /admin/index.html 200
+/data/* /data/:splat 200
+/js/* /js/:splat 200
+/* /es/:splat 302
+/ /es/ 302
+/chupitos /es/chupitos/ 302
+/menu /es/menu/ 302
+/cocktails /es/cocktails/ 302

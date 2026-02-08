@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin</title>
+    <style>
+      body { margin:0; min-height:100vh; font-family:"Sora","Segoe UI",sans-serif; background:#fff7de; color:#0b241b; }
+      header { display:flex; justify-content:space-between; align-items:center; padding:16px 22px; background:#ffffffb3; border-bottom:1px solid rgba(11,58,138,.18); backdrop-filter: blur(6px); }
+      .wrap { padding:22px; }
+      .btn { padding:8px 12px; border-radius:10px; border:1px solid rgba(11,58,138,.25); background:#fff; cursor:pointer; }
+    </style>
+  </head>
+  <body>
+    <script>
+      (function(){
+        const key = 'lafavela_admin_ok';
+        if (localStorage.getItem(key) !== '1') {
+          window.location.href = '/lafavela/admin/login.html';
+        }
+      })();
+    </script>
+    <header>
+      <div>Admin</div>
+      <div>
+        <a class="btn" href="/lafavela/es/">Ver sitio</a>
+        <button class="btn" id="logout">Salir</button>
+      </div>
+    </header>
+    <div class="wrap">
+      <p>Panel falso (estático). No es seguro.</p>
+    </div>
+    <script>
+      document.getElementById('logout').addEventListener('click', () => {
+        localStorage.removeItem('lafavela_admin_ok');
+        window.location.href = '/lafavela/admin/login.html';
+      });
+    </script>
+  </body>
+</html>

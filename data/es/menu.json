@@ -1,0 +1,93 @@
+{
+  "title": "Menú",
+  "subtitle": "Clásicos tropicales con un giro de Rio",
+  "hours": "Mar-dom - 14:00 a 03:00",
+  "sections": [
+    {
+      "title": "Street food",
+      "items": [
+        {
+          "name": "Hamburguesa completa",
+          "description": "Ternera o pollo con queso, lechuga, tomate y patatas fritas",
+          "price": "8.90"
+        },
+        {
+          "name": "Hot Dog Brasileiro",
+          "description": "Perrito caliente al estilo de La Favela",
+          "price": "5.50"
+        }
+      ]
+    },
+    {
+      "title": "Espetinhos",
+      "items": [
+        {
+          "name": "Frango",
+          "description": "Brocheta de pollo",
+          "price": "4.00"
+        },
+        {
+          "name": "Frango Com Bacon",
+          "description": "Brocheta de pollo con bacon",
+          "price": "5.30"
+        },
+        {
+          "name": "Chorizo",
+          "description": "Brocheta de chorizo",
+          "price": "4.00"
+        },
+        {
+          "name": "Picanha",
+          "description": "Brocheta de picaña Black Angus",
+          "price": "7.50"
+        },
+        {
+          "name": "Coração de Galinha",
+          "description": "Brocheta de corazón de pollo",
+          "price": "3.00"
+        },
+        {
+          "name": "Mixto",
+          "description": "Brocheta de carne variada",
+          "price": "6.00"
+        }
+      ]
+    },
+    {
+      "title": "Porções",
+      "items": [
+        {
+          "name": "Arroz",
+          "description": "Arroz cocinado con ajo y aceite",
+          "price": "3.50"
+        },
+        {
+          "name": "Feijão preto",
+          "description": "Alubias negras con especias",
+          "price": "4.50"
+        },
+        {
+          "name": "Salada Fresca",
+          "description": "Ensalada Fresca de la casa",
+          "price": "5.00"
+        },
+        {
+          "name": "Batata frita",
+          "description": "Patatas crujientes",
+          "price": "4.00"
+        },
+        {
+          "name": "Vinagrete",
+          "description": "Picadillo de verduras aliñadas",
+          "price": "2.50"
+        },
+        {
+          "name": "Farofa",
+          "description": "Harina de yuca tostada",
+          "price": "2.50"
+        }
+      ]
+    }
+  ],
+  "ad": "Chupitos a 1,50 �,�"
+}

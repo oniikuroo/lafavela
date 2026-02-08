@@ -1,0 +1,192 @@
+{
+  "title": "Chupitos",
+  "subtitle": "Clásicos y especiales de la casa",
+  "hours": "Mar-dom - 14:00 a 03:00",
+  "sections": [
+    {
+      "title": "Chupitos",
+      "items": [
+        {
+          "name": "Apple pie shot",
+          "description": "sirup apple pie, vodka o rhum",
+          "price": "3"
+        },
+        {
+          "name": "Sevillano",
+          "description": "sirup canela, rhum",
+          "price": "3"
+        },
+        {
+          "name": "Mont blanc",
+          "description": "Midori, minta blanca, chartreuse",
+          "price": "3"
+        },
+        {
+          "name": "Sao tome",
+          "description": "Sirop apple pie, cachaça, rhum",
+          "price": "3"
+        },
+        {
+          "name": "Brazil rosa",
+          "description": "Sirop de rosa, cachaça, melocoton",
+          "price": "3"
+        },
+        {
+          "name": "Darkhole",
+          "description": "vodka negra, jagermeister",
+          "price": "3"
+        },
+        {
+          "name": "Fuck off",
+          "description": "tequila, jagermeister",
+          "price": "3"
+        },
+        {
+          "name": "Cocoloco",
+          "description": "malibu, jagermeister",
+          "price": "3"
+        },
+        {
+          "name": "Alloloco",
+          "description": "vodka negra, jagermeister, tequila",
+          "price": "3"
+        },
+        {
+          "name": "Brain tumor",
+          "description": "licor melocoton, baileys, granadina",
+          "price": "3"
+        },
+        {
+          "name": "Brain hemorage",
+          "description": "licor melocoton, baileys, granadina, curaçao azul",
+          "price": "3"
+        },
+        {
+          "name": "Blowjob",
+          "description": "amarreto, baileys, chantilly",
+          "price": "3"
+        },
+        {
+          "name": "Lemon drop",
+          "description": "vodka, curaçao azul, lima",
+          "price": "3"
+        },
+        {
+          "name": "Chupirita",
+          "description": "tequila, triple sec, melocoton, borde de sal",
+          "price": "3"
+        },
+        {
+          "name": "Caipipeach",
+          "description": "cachaça, triple sec, melocoton",
+          "price": "3"
+        },
+        {
+          "name": "Piruleta",
+          "description": "licor 43, amarreto, maracuja",
+          "price": "3"
+        },
+        {
+          "name": "Horny bull",
+          "description": "tequila, rhum, vodka",
+          "price": "3"
+        },
+        {
+          "name": "ABC",
+          "description": "amarreto, baileys, cognac",
+          "price": "3"
+        }
+      ]
+    },
+    {
+      "title": "Chupitos",
+      "items": [
+        {
+          "name": "Wet Pussy",
+          "description": "vodka, melocoton, fresa",
+          "price": "3"
+        },
+        {
+          "name": "Guijon",
+          "description": "ron miel, casera, lima",
+          "price": "3"
+        },
+        {
+          "name": "Orgasm",
+          "description": "kalhua, baileys, amareto",
+          "price": "3"
+        },
+        {
+          "name": "Bob Marley marijuana",
+          "description": "granadina, tequila, absinthe cannabis",
+          "price": "3"
+        },
+        {
+          "name": "Black russian",
+          "description": "vodka, kalhua",
+          "price": "3"
+        },
+        {
+          "name": "Kamikaze",
+          "description": "vodka, triple sec, lima",
+          "price": "3"
+        },
+        {
+          "name": "Liquid cocaine",
+          "description": "rhum, tequila, jagermeister",
+          "price": "3"
+        },
+        {
+          "name": "Pinita",
+          "description": "rhum, pina, lima",
+          "price": "3"
+        },
+        {
+          "name": "Wet Pussy",
+          "description": "vodka, melocoton, fresa",
+          "price": "3"
+        },
+        {
+          "name": "Guiron",
+          "description": "ron miel, lima",
+          "price": "3"
+        },
+        {
+          "name": "Tim",
+          "description": "sirop rosa, butterscotch, rhum",
+          "price": "3"
+        },
+        {
+          "name": "Tybrasa",
+          "description": "sirup canela, cacao, rhum, vodka spicy",
+          "price": "3"
+        },
+        {
+          "name": "Fire-on",
+          "description": "rhum pimiento, absenta",
+          "price": "3"
+        },
+        {
+          "name": "Boyarski",
+          "description": "vodka infusada con pimiento, tabasco, fresa",
+          "price": "3"
+        },
+        {
+          "name": "Escala del diablo",
+          "description": "Boyarski, rhum pimiento, absinthe",
+          "price": "3"
+        },
+        {
+          "name": "Escala de richter",
+          "description": "sirup apple pie, rhum, absinthe",
+          "price": "3"
+        },
+        {
+          "name": "Casa del diablo",
+          "description": "rhum pimiento, absinthe",
+          "price": "3"
+        }
+      ]
+    }
+  ]
+}
