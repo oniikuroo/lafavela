@@ -14,7 +14,14 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         $supported = ['es', 'en', 'pt'];
+        $routeLang = $request->route('lang');
         $requested = $request->query('lang');
+
+        if (is_string($routeLang) && in_array($routeLang, $supported, true)) {
+            $request->session()->put('lang', $routeLang);
+            app()->setLocale($routeLang);
+            return $next($request);
+        }
 
         if (is_string($requested) && in_array($requested, $supported, true)) {
             $request->session()->put('lang', $requested);

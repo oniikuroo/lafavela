@@ -1,18 +1,84 @@
-﻿<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.site')
+
+@section('head')
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-Frame-Options" content="DENY">
+        <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+        @php
+            $seoTitle = __('site.site_title');
+            $seoDescription = __('site.site_description');
+            $seoUrl = url()->current();
+            $seoImage = asset('images/favela-logo-v2.png');
+            $seoBase = rtrim(config('app.url') ?: request()->getSchemeAndHttpHost(), '/');
+            $seoLang = app()->getLocale();
+            $seoLocaleMap = ['es' => 'es_ES', 'en' => 'en_US', 'pt' => 'pt_PT'];
+            $seoLocale = $seoLocaleMap[$seoLang] ?? 'es_ES';
+            $path = request()->path();
+            $path = $path === '/' ? '' : $path;
+            $path = preg_replace('/^(es|en|pt)(\/|$)/i', '', $path);
+            $path = trim($path, '/');
+            $altPath = $path ? '/' . $path : '';
+            $defaultLang = in_array(config('app.locale'), ['es', 'en', 'pt'], true) ? config('app.locale') : 'en';
+            $hreflangs = [
+                'es' => $seoBase . '/es' . $altPath,
+                'en' => $seoBase . '/en' . $altPath,
+                'pt' => $seoBase . '/pt' . $altPath,
+                'x-default' => $seoBase . '/' . $defaultLang . $altPath,
+            ];
+            $structuredData = [
+                '@context' => 'https://schema.org',
+                '@type' => 'BarOrPub',
+                'name' => 'La Favela Lounge Bar',
+                'telephone' => '+34 696 989 246',
+                'image' => $seoImage,
+                'url' => $seoBase,
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => 'C. Amor de Dios, 56',
+                    'addressLocality' => 'Sevilla',
+                    'postalCode' => '41002',
+                    'addressRegion' => 'Andalucía',
+                    'addressCountry' => 'ES',
+                ],
+                'sameAs' => [
+                    'https://www.instagram.com/lafavela.sevilla/',
+                ],
+            ];
+        @endphp
 
         <title>{{ __('site.site_title') }}</title>
+        <meta name="description" content="{{ $seoDescription }}">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <link rel="canonical" href="{{ $seoUrl }}">
+        <link rel="alternate" hreflang="es" href="{{ $hreflangs['es'] }}">
+        <link rel="alternate" hreflang="en" href="{{ $hreflangs['en'] }}">
+        <link rel="alternate" hreflang="pt" href="{{ $hreflangs['pt'] }}">
+        <link rel="alternate" hreflang="x-default" href="{{ $hreflangs['x-default'] }}">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <meta property="og:title" content="{{ $seoTitle }}">
+        <meta property="og:description" content="{{ $seoDescription }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ $seoUrl }}">
+        <meta property="og:image" content="{{ $seoImage }}">
+        <meta property="og:site_name" content="La Favela">
+        <meta property="og:locale" content="{{ $seoLocale }}">
+        <meta property="og:locale:alternate" content="es_ES">
+        <meta property="og:locale:alternate" content="en_US">
+        <meta property="og:locale:alternate" content="pt_PT">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seoTitle }}">
+        <meta name="twitter:description" content="{{ $seoDescription }}">
+        <meta name="twitter:image" content="{{ $seoImage }}">
 
-        <style>
+        <meta name="theme-color" content="#1a7f3b">
+
+        <script type="application/ld+json">{!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+@endsection
+
+@section('styles')
             :root {
                 --brazil-green: #1a7f3b;
                 --brazil-yellow: #f7c800;
@@ -103,7 +169,7 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 10px;
-                font-size: 11px;
+                font-size: 8px;
                 letter-spacing: 0.2em;
                 text-transform: uppercase;
                 font-weight: 700;
@@ -116,7 +182,7 @@
                 border: 2px solid rgba(11, 58, 138, 0.3);
                 background: rgba(255, 255, 255, 0.7);
                 padding: 8px 32px 8px 14px;
-                font-size: 11px;
+                font-size: 8px;
                 font-weight: 700;
                 letter-spacing: 0.18em;
                 text-transform: uppercase;
@@ -489,17 +555,84 @@
                     letter-spacing: 0.1em;
                 }
             }
-        </style>
-    </head>
-    <body>
+        
+            .social-bar {
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+                color: #0b3a8a;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+            }
+            .social-bar a {
+                color: inherit;
+                text-decoration: none;
+                padding: 6px;
+                border-radius: 999px;
+                border: 2px solid rgba(11, 58, 138, 0.25);
+                background: rgba(255, 255, 255, 0.6);
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .social-icon {
+                width: 12px;
+                height: 12px;
+                display: block;
+            }
+
+            .notice-banner {
+                margin: 8px 0 14px;
+                padding: 10px 14px;
+                border-radius: 12px;
+                background: rgba(11, 58, 138, 0.08);
+                border: 1px solid rgba(11, 58, 138, 0.18);
+                color: #0b3a8a;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                align-items: center;
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .notice-banner strong {
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                font-size: 8px;
+            }
+@endsection
+
+@section('content')
         @php($currentLang = app()->getLocale())
         <div class="page">
             <div class="orb" aria-hidden="true"></div>
             <div class="leaf left" aria-hidden="true"></div>
             <div class="leaf right" aria-hidden="true"></div>
 
+            <div class="social-bar">
+    <a href="tel:+34696989246" aria-label="Telefono">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 3c-.9 0-1.7.7-1.7 1.7 0 8.1 6.6 14.6 14.6 14.6.9 0 1.7-.7 1.7-1.7v-3.1c0-.7-.5-1.3-1.2-1.6l-3.3-1.1c-.7-.2-1.4 0-1.8.5l-1.3 1.6c-2.3-1.1-4.1-2.9-5.2-5.2l1.6-1.3c.5-.4.7-1.1.5-1.8L9.4 4.2C9.2 3.6 8.5 3 7.8 3H7z" fill="currentColor"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/lafavela.sevilla/" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16.5" cy="7.5" r="1" fill="currentColor"/>
+        </svg>
+    </a>
+</div>
+            @if (!empty($notice))
+                <div class="notice-banner" role="status">
+                    <strong>{{ $notice->title }}</strong>
+                    @if (!empty($notice->body))
+                        <span>{{ $notice->body }}</span>
+                    @endif
+                </div>
+            @endif
             <header class="topbar">
-                <a class="brand" href="{{ url('/') }}">La Favela</a>
+                <a class="brand" href="{{ route('home', ['lang' => $currentLang]) }}">La Favela</a>
                 <div class="topbar-right">
                     <div class="location">{{ __('site.location') }}</div>
                     <div class="lang-select">
@@ -525,7 +658,7 @@
                             <rect x="15" y="13" width="12" height="2" fill="#ffffff" opacity="0.9"/>
                         </svg>
                     </h1>
-                    <div class="label-subtitle">{{ __('site.subtitle') }}</div>
+                    <div class="label-subtitle">{{ $settings['subtitle'] ?? __('site.subtitle') }}</div>
                     <div class="label-line" aria-hidden="true"></div>
                     <div class="label-tags">
                         <span class="tag">{{ __('site.tag_cachaca') }}</span>
@@ -534,7 +667,7 @@
                         <span class="tag">{{ __('site.tag_bites') }}</span>
                     </div>
                     <div class="label-footer">
-                    <span>{{ __('site.hours') }}</span>
+                    <span>{{ $settings['hours'] ?? __('site.hours') }}</span>
                         <img class="seal" src="{{ asset('images/favela-logo.png') }}" alt="La Favela logo">
                     </div>
                 </section>
@@ -543,38 +676,44 @@
                 <div class="shots-ad"><span>{{ __('site.home_shots_ad') }}</span></div>
                     <section class="info-panel">
                         <h2>{{ __('site.visit_title') }}</h2>
-                        <p>{{ __('site.visit_intro') }}</p>
+                        <p>{{ $settings['visit_intro'] ?? __('site.visit_intro') }}</p>
                         <p>
                             <a class="address-link" href="https://maps.app.goo.gl/h2iAN9fyDTt7f8Mt6" target="_blank" rel="noopener noreferrer">
                                 {{ __('site.visit_address') }}
                             </a>
                         </p>
                         <div class="cta-row">
-                            <a class="cta primary" href="{{ route('cocktails') }}">{{ __('site.cta_cocktails') }}</a>
-                            <a class="cta secondary" href="{{ route('menu') }}">{{ __('site.cta_menu') }}</a>
-                            <a class="cta secondary" href="{{ route('shots') }}">{{ __('site.cta_shots') }}</a>
+                            <a class="cta primary" href="{{ route('cocktails', ['lang' => $currentLang]) }}">{{ __('site.cta_cocktails') }}</a>
+                            <a class="cta secondary" href="{{ route('menu', ['lang' => $currentLang]) }}">{{ __('site.cta_menu') }}</a>
+                            <a class="cta secondary" href="{{ route('shots', ['lang' => $currentLang]) }}">{{ __('site.cta_shots') }}</a>
                         </div>
                     </section>
                 </div>
             </main>
 
-            <footer class="footer">{{ __('site.footer') }}</footer>
+            <footer class="footer">{{ __('site.footer') }}<br><span class="footer-powered">Powered by Oni Web Studio</span></footer>
         </div>
+@endsection
+
+@section('scripts')
         <script>
             function setLanguage(lang) {
                 const url = new URL(window.location.href);
-                const path = url.pathname;
-                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+                const basePath = @json(parse_url(config('app.url') ?: url('/'), PHP_URL_PATH));
+                const normalizedBase = (basePath && basePath !== '/') ? basePath.replace(/\/$/, '') : '';
+                let path = url.pathname;
 
-                if (match) {
-                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
-                    url.searchParams.delete('lang');
-                } else {
-                    url.searchParams.set('lang', lang);
+                if (normalizedBase && path.startsWith(normalizedBase)) {
+                    path = path.slice(normalizedBase.length);
                 }
+
+                path = path.replace(/^\/(es|en|pt)(?=\/|$)/i, '');
+                path = path.replace(/^\/+/, '');
+
+                url.pathname = `${normalizedBase}/${lang}${path ? '/' + path : ''}`;
+                url.searchParams.delete('lang');
 
                 window.location.href = url.toString();
             }
         </script>
-    </body>
-</html>
+@endsection

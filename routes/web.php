@@ -1,27 +1,42 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/' . app()->getLocale());
 });
 
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');
-
-Route::get('/cocktails', function () {
-    return view('cocktails');
-})->name('cocktails');
-
-Route::get('/chupitos', function () {
-    return view('shots');
-})->name('shots');
+Route::prefix('{lang}')
+    ->where(['lang' => 'es|en|pt'])
+    ->group(function () {
+        Route::get('/', [PageController::class, 'home'])->name('home');
+        Route::get('/menu', [PageController::class, 'menu'])->name('menu');
+        Route::get('/cocktails', [PageController::class, 'cocktails'])->name('cocktails');
+        Route::get('/chupitos', [PageController::class, 'shots'])->name('shots');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/settings', [AdminController::class, 'saveSettings'])->name('admin.settings');
+    Route::post('/notices', [AdminController::class, 'storeNotice'])->name('admin.notices.store');
+    Route::delete('/notices/{notice}', [AdminController::class, 'deleteNotice'])->name('admin.notices.delete');
+    Route::get('/menu', [AdminMenuController::class, 'index'])->name('admin.menu');
+    Route::post('/menu/page', [AdminMenuController::class, 'updatePage'])->name('admin.menu.page.update');
+    Route::post('/menu/sections', [AdminMenuController::class, 'storeSection'])->name('admin.menu.sections.store');
+    Route::post('/menu/sections/update', [AdminMenuController::class, 'updateSection'])->name('admin.menu.sections.update');
+    Route::delete('/menu/sections', [AdminMenuController::class, 'deleteSection'])->name('admin.menu.sections.delete');
+    Route::post('/menu/items', [AdminMenuController::class, 'storeItem'])->name('admin.menu.items.store');
+    Route::post('/menu/items/update', [AdminMenuController::class, 'updateItem'])->name('admin.menu.items.update');
+    Route::delete('/menu/items', [AdminMenuController::class, 'deleteItem'])->name('admin.menu.items.delete');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

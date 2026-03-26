@@ -1,18 +1,85 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.site')
+
+@section('head')
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-Frame-Options" content="DENY">
+        <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+        @php
+            $seoTitle = __('site.cocktails_title');
+            $seoDescription = __('site.cocktails_description');
+            $seoUrl = url()->current();
+            $seoImage = asset('images/favela-logo-v2.png');
+            $seoBase = rtrim(config('app.url') ?: request()->getSchemeAndHttpHost(), '/');
+            $seoLang = app()->getLocale();
+            $seoLocaleMap = ['es' => 'es_ES', 'en' => 'en_US', 'pt' => 'pt_PT'];
+            $seoLocale = $seoLocaleMap[$seoLang] ?? 'es_ES';
+            $path = request()->path();
+            $path = $path === '/' ? '' : $path;
+            $path = preg_replace('/^(es|en|pt)(\/|$)/i', '', $path);
+            $path = trim($path, '/');
+            $altPath = $path ? '/' . $path : '';
+            $defaultLang = in_array(config('app.locale'), ['es', 'en', 'pt'], true) ? config('app.locale') : 'en';
+            $hreflangs = [
+                'es' => $seoBase . '/es' . $altPath,
+                'en' => $seoBase . '/en' . $altPath,
+                'pt' => $seoBase . '/pt' . $altPath,
+                'x-default' => $seoBase . '/' . $defaultLang . $altPath,
+            ];
+            $structuredData = [
+                '@context' => 'https://schema.org',
+                '@type' => 'BarOrPub',
+                'name' => 'La Favela Lounge Bar',
+                'telephone' => '+34 696 989 246',
+                'image' => $seoImage,
+                'url' => $seoBase,
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'streetAddress' => 'C. Amor de Dios, 56',
+                    'addressLocality' => 'Sevilla',
+                    'postalCode' => '41002',
+                    'addressRegion' => 'Andalucía',
+                    'addressCountry' => 'ES',
+                ],
+                'sameAs' => [
+                    'https://www.instagram.com/lafavela.sevilla/',
+                ],
+            ];
+        @endphp
 
         <title>{{ __('site.cocktails_title') }}</title>
+        <meta name="description" content="{{ $seoDescription }}">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <link rel="canonical" href="{{ $seoUrl }}">
+        <link rel="alternate" hreflang="es" href="{{ $hreflangs['es'] }}">
+        <link rel="alternate" hreflang="en" href="{{ $hreflangs['en'] }}">
+        <link rel="alternate" hreflang="pt" href="{{ $hreflangs['pt'] }}">
+        <link rel="alternate" hreflang="x-default" href="{{ $hreflangs['x-default'] }}">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <meta property="og:title" content="{{ $seoTitle }}">
+        <meta property="og:description" content="{{ $seoDescription }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ $seoUrl }}">
+        <meta property="og:image" content="{{ $seoImage }}">
+        <meta property="og:site_name" content="La Favela">
+        <meta property="og:locale" content="{{ $seoLocale }}">
+        <meta property="og:locale:alternate" content="es_ES">
+        <meta property="og:locale:alternate" content="en_US">
+        <meta property="og:locale:alternate" content="pt_PT">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seoTitle }}">
+        <meta name="twitter:description" content="{{ $seoDescription }}">
+        <meta name="twitter:image" content="{{ $seoImage }}">
 
-        <style>
+        <meta name="theme-color" content="#1a7f3b">
+
+        <script type="application/ld+json">{!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+
+            @endsection
+
+@section('styles')
             :root {
                 --brazil-green: #1a7f3b;
                 --brazil-yellow: #f7c800;
@@ -256,17 +323,124 @@
                     padding: 8px 10px;
                 }
             }
-        </style>
-    </head>
-    <body>
+        
+            .social-bar {
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+                color: #0b3a8a;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+            }
+            .social-bar a {
+                color: inherit;
+                text-decoration: none;
+                padding: 6px;
+                border-radius: 999px;
+                border: 2px solid rgba(11, 58, 138, 0.25);
+                background: rgba(255, 255, 255, 0.6);
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .social-icon {
+                width: 12px;
+                height: 12px;
+                display: block;
+            }
+
+            /* Home-style cards for menu pages */
+            .menu-grid {
+                display: grid;
+                gap: 28px;
+            }
+
+            .menu-section {
+                background: linear-gradient(150deg, #fff7de 0%, #ffe6a2 100%);
+                border: 2px solid var(--brazil-green);
+                border-radius: 24px;
+                padding: 20px 22px;
+                box-shadow: 0 18px 32px rgba(10, 40, 24, 0.18);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .menu-section::before {
+                content: "";
+                position: absolute;
+                inset: 10px;
+                border-radius: 18px;
+                border: 2px dashed rgba(11, 58, 138, 0.35);
+                pointer-events: none;
+            }
+
+            .menu-section h2 {
+                position: relative;
+                z-index: 1;
+                font-family: "Bebas Neue", "Sora", sans-serif;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                margin: 0 0 14px;
+                color: var(--brazil-blue);
+            }
+
+            .menu-items {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                gap: 12px;
+            }
+
+            .menu-item {
+                background: rgba(255, 255, 255, 0.9);
+                border: 2px solid rgba(11, 58, 138, 0.18);
+                border-radius: 16px;
+                padding: 12px 14px;
+                box-shadow: 0 10px 18px rgba(11, 58, 138, 0.12);
+            }
+
+            .menu-item-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .menu-item-name {
+                font-weight: 700;
+                color: var(--deep);
+            }
+
+            .menu-item-price {
+                font-weight: 800;
+                color: var(--brazil-green);
+            }
+
+@endsection
+
+@section('content')
         @php($currentLang = app()->getLocale())
         <div class="page">
+            <div class="social-bar">
+    <a href="tel:+34696989246" aria-label="Telefono">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 3c-.9 0-1.7.7-1.7 1.7 0 8.1 6.6 14.6 14.6 14.6.9 0 1.7-.7 1.7-1.7v-3.1c0-.7-.5-1.3-1.2-1.6l-3.3-1.1c-.7-.2-1.4 0-1.8.5l-1.3 1.6c-2.3-1.1-4.1-2.9-5.2-5.2l1.6-1.3c.5-.4.7-1.1.5-1.8L9.4 4.2C9.2 3.6 8.5 3 7.8 3H7z" fill="currentColor"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/lafavela.sevilla/" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16.5" cy="7.5" r="1" fill="currentColor"/>
+        </svg>
+    </a>
+</div>
             <header class="topbar">
-                <a class="brand" href="{{ url('/') }}">La Favela</a>
+                <a class="brand" href="{{ route('home', ['lang' => $currentLang]) }}">La Favela</a>
                 <div class="topbar-right">
-                    <a class="nav-link" href="{{ url('/') }}">{{ __('site.back_home') }}</a>
-                    <a class="nav-link" href="{{ route('menu') }}">{{ __('site.nav_menu') }}</a>
-                    <a class="nav-link" href="{{ route('shots') }}">{{ __('site.nav_shots') }}</a>
+                    <a class="nav-link" href="{{ route('home', ['lang' => $currentLang]) }}">{{ __('site.back_home') }}</a>
+                    <a class="nav-link" href="{{ route('menu', ['lang' => $currentLang]) }}">{{ __('site.nav_menu') }}</a>
+                    <a class="nav-link" href="{{ route('shots', ['lang' => $currentLang]) }}">{{ __('site.nav_shots') }}</a>
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="setLanguage(this.value)">
@@ -280,188 +454,63 @@
 
             <section class="menu-hero">
                 <div>
-                    <h1 class="menu-title">{{ __('site.cocktails_heading') }}</h1>
+                    <h1 class="menu-title">{{ $menuContent['heading'] ?? __('site.cocktails_heading') }}</h1>
                     <div class="divider" aria-hidden="true"></div>
-                    <p class="menu-subtitle">{{ __('site.cocktails_subtitle') }}</p>
+                    <p class="menu-subtitle">{{ $menuContent['subtitle'] ?? __('site.cocktails_subtitle') }}</p>
                 </div>
                 <div class="menu-hours">
-                    {{ __('site.menu_hours') }}
+                    {{ $menuContent['hours'] ?? __('site.menu_hours') }}
                 </div>
             </section>
 
             <section class="menu-grid">
-                <div class="menu-card">
-                    <h3>{{ __('site.section_house_cocktails') }}</h3>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_basil_passion') }}</span>
-                            <small>{{ __('site.item_basil_passion_desc') }}</small>
+            @if (!empty($menuSections))
+                @foreach ($menuSections as $section)
+                    <section class="menu-section">
+                        <h2>{{ $section->title }}</h2>
+                        <div class="menu-items">
+                            @foreach ($section->items as $item)
+                                <div class="menu-item">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">{{ $item->name }}</span>
+                                        @if (!empty($item->price))
+                                            <span class="menu-item-price">{{ $item->price }}</span>
+                                        @endif
+                                    </div>
+                                    @if (!empty($item->description))
+                                        <p class="menu-item-desc">{{ $item->description }}</p>
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_blue_lagoon') }}</span>
-                            <small>{{ __('site.item_blue_lagoon_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_favela') }}</span>
-                            <small>{{ __('site.item_favela_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_deseo_tropical') }}</span>
-                            <small>{{ __('site.item_deseo_tropical_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_long_island') }}</span>
-                            <small>{{ __('site.item_long_island_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_luna_llena') }}</span>
-                            <small>{{ __('site.item_luna_llena_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_leblon') }}</span>
-                            <small>{{ __('site.item_leblon_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_amazonia') }}</span>
-                            <small>{{ __('site.item_amazonia_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_selva_negra') }}</span>
-                            <small>{{ __('site.item_selva_negra_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_brisa_roja') }}</span>
-                            <small>{{ __('site.item_brisa_roja_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_sweet_night') }}</span>
-                            <small>{{ __('site.item_sweet_night_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_cara_bacana') }}</span>
-                            <small>{{ __('site.item_cara_bacana_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_beso_jaguar') }}</span>
-                            <small>{{ __('site.item_beso_jaguar_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <h3>{{ __('site.section_classic_cocktails') }}</h3>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_caipirinha') }}</span>
-                            <small>{{ __('site.item_caipirinha_desc') }}</small>
-                        </div>
-                        <div class="price">8</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_caipiroska') }}</span>
-                            <small>{{ __('site.item_caipiroska_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_caipironmiel') }}</span>
-                            <small>{{ __('site.item_caipironmiel_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_caipironmiel_passion') }}</span>
-                            <small>{{ __('site.item_caipironmiel_passion_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_caipilito') }}</span>
-                            <small>{{ __('site.item_caipilito_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_cachondo') }}</span>
-                            <small>{{ __('site.item_cachondo_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_pina_colada') }}</span>
-                            <small>{{ __('site.item_pina_colada_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <span>{{ __('site.item_daikiri') }}</span>
-                            <small>{{ __('site.item_daikiri_desc') }}</small>
-                        </div>
-                        <div class="price">9</div>
-                    </div>
-                </div>
+                    </section>
+                @endforeach
+            @else
+                <p>{{ __('site.menu_empty') }}</p>
+            @endif
             </section>
-
-            <footer class="footer-note">{{ __('site.footer') }}</footer>
         </div>
+@endsection
+
+@section('scripts')
         <script>
             function setLanguage(lang) {
                 const url = new URL(window.location.href);
-                const path = url.pathname;
-                const match = path.match(/^\/(es|en|pt)(\/|$)/i);
+                const basePath = @json(parse_url(config('app.url') ?: url('/'), PHP_URL_PATH));
+                const normalizedBase = (basePath && basePath !== '/') ? basePath.replace(/\/$/, '') : '';
+                let path = url.pathname;
 
-                if (match) {
-                    url.pathname = path.replace(/^\/(es|en|pt)(\/|$)/i, `/${lang}$2`);
-                    url.searchParams.delete('lang');
-                } else {
-                    url.searchParams.set('lang', lang);
+                if (normalizedBase && path.startsWith(normalizedBase)) {
+                    path = path.slice(normalizedBase.length);
                 }
+
+                path = path.replace(/^\/(es|en|pt)(?=\/|$)/i, '');
+                path = path.replace(/^\/+/, '');
+
+                url.pathname = `${normalizedBase}/${lang}${path ? '/' + path : ''}`;
+                url.searchParams.delete('lang');
 
                 window.location.href = url.toString();
             }
         </script>
-    </body>
-</html>
+@endsection
