@@ -1,59 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# La Favela
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laravel application for the La Favela bar site and menu management.
 
-## About Laravel
+## Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 8.2
+- Laravel 12
+- SQLite
+- Blade templates
+- Vite
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Main Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Public site in `es`, `en`, and `pt`
+- Menu, cocktails, and shots pages
+- Admin area for notices, settings, and menu editing
+- Menu content stored in `menu_pages` as JSON by `locale + page`
 
-## Learning Laravel
+## Local Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Option 1: existing XAMPP layout
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Project path used in this repo:
 
-## Laravel Sponsors
+```bash
+/Applications/XAMPP/xamppfiles/htdocs/lafavela
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Local URLs:
 
-### Premium Partners
+```text
+http://localhost/lafavela/public/es
+http://localhost/lafavela/public/es/menu
+http://localhost/lafavela/public/es/cocktails
+http://localhost/lafavela/public/es/chupitos
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Option 2: standard Laravel setup
 
-## Contributing
+```bash
+composer setup
+php artisan db:seed
+php artisan serve
+npm run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Environment
 
-## Code of Conduct
+Start from `.env.example`:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed
+```
 
-## Security Vulnerabilities
+Important values:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+APP_NAME="La Favela"
+APP_URL=https://your-domain.example
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
 
-## License
+If you serve the project from a subdirectory, set `APP_URL` to that full base path.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Database
+
+Current menu editing uses:
+
+```sql
+SELECT * FROM menu_pages WHERE locale = 'es' AND page = 'menu';
+```
+
+`payload` stores page metadata and sections/items as JSON.
+
+Main tables:
+
+- `menu_pages`
+- `site_settings`
+- `notices`
+- `users`
+
+Legacy tables `menu_sections` and `menu_items` still exist in the project history but are no longer the active menu source.
+
+## Admin
+
+Menu admin:
+
+```text
+/admin/menu?locale=es&page=menu
+```
+
+Examples:
+
+- `locale=es&page=menu`
+- `locale=en&page=cocktails`
+- `locale=pt&page=shots`
+
+## Deployment
+
+### Docker
+
+Build:
+
+```bash
+docker build -t lafavela .
+```
+
+Run:
+
+```bash
+docker run --name lafavela \
+  -p 8080:80 \
+  -e APP_KEY=base64:YOUR_APP_KEY \
+  -e APP_URL=https://your-domain.example \
+  -v $(pwd)/database:/var/www/html/database \
+  lafavela
+```
+
+Then open:
+
+```text
+http://localhost:8080/es
+```
+
+The container entrypoint automatically:
+
+- ensures `database/database.sqlite` exists
+- runs `php artisan migrate --force`
+
+### Generic host requirements
+
+Any host is fine if it supports:
+
+- PHP 8.2+
+- SQLite
+- writable `storage/` and `bootstrap/cache/`
+- document root pointed to `public/`
+
+### Notes for production
+
+- set a real `APP_KEY`
+- set `APP_DEBUG=false`
+- persist the `database/` folder
+- persist `storage/` if you want logs/files to survive deploys
+
+## Repo Notes
+
+Current GitHub main was updated from the definitive local Laravel version.
+
+Latest published commit in this working session:
+
+```text
+2bf0e62 Finalize Laravel menu pages version
+```
