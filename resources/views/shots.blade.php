@@ -542,22 +542,13 @@
 @section('scripts')
         <script>
             function setLanguage(lang) {
-                const url = new URL(window.location.href);
-                const basePath = @json(parse_url(config('app.url') ?: url('/'), PHP_URL_PATH));
-                const normalizedBase = (basePath && basePath !== '/') ? basePath.replace(/\/$/, '') : '';
-                let path = url.pathname;
+                const routes = {
+                    es: @json(route('shots', ['lang' => 'es'])),
+                    en: @json(route('shots', ['lang' => 'en'])),
+                    pt: @json(route('shots', ['lang' => 'pt'])),
+                };
 
-                if (normalizedBase && path.startsWith(normalizedBase)) {
-                    path = path.slice(normalizedBase.length);
-                }
-
-                path = path.replace(/^\/(es|en|pt)(?=\/|$)/i, '');
-                path = path.replace(/^\/+/, '');
-
-                url.pathname = `${normalizedBase}/${lang}${path ? '/' + path : ''}`;
-                url.searchParams.delete('lang');
-
-                window.location.href = url.toString();
+                window.location.href = routes[lang] || routes.es;
             }
         </script>
 @endsection
