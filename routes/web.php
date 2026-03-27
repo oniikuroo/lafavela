@@ -7,7 +7,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/' . app()->getLocale());
+    $lang = app()->getLocale();
+
+    if (!in_array($lang, ['es', 'en', 'pt'], true)) {
+        $lang = 'es';
+    }
+
+    return redirect()->route('home', ['lang' => $lang]);
 });
 
 Route::prefix('{lang}')

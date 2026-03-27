@@ -292,7 +292,10 @@
                 box-shadow: 0 16px 32px rgba(11, 36, 27, 0.2);
                 position: relative;
                 overflow: hidden;
-                animation: glow 2.4s ease-in-out infinite;
+                will-change: transform;
+                backface-visibility: hidden;
+                transform: translateZ(0);
+                animation: glow 3.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
             }
 
             .shots-ad::after {
@@ -303,7 +306,8 @@
                 width: 60%;
                 background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.55), transparent);
                 transform: skewX(-18deg);
-                animation: sweep 3.6s ease-in-out infinite;
+                will-change: transform, opacity;
+                animation: sweep 4.8s linear infinite;
             }
 
             .shots-ad span {
@@ -497,15 +501,16 @@
             }
 
             @keyframes glow {
-                0%, 100% { transform: translateY(0); box-shadow: 0 16px 32px rgba(11, 36, 27, 0.2); }
-                50% { transform: translateY(-3px); box-shadow: 0 22px 44px rgba(11, 36, 27, 0.26); }
+                0%, 100% { transform: translate3d(0, 0, 0); }
+                50% { transform: translate3d(0, -3px, 0); }
             }
 
             @keyframes sweep {
-                0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
-                20% { opacity: 0.9; }
-                50% { transform: translateX(160%) skewX(-18deg); opacity: 0; }
-                100% { opacity: 0; }
+                0% { transform: translate3d(-120%, 0, 0) skewX(-18deg); opacity: 0; }
+                15% { opacity: 0.15; }
+                35% { opacity: 0.45; }
+                70% { transform: translate3d(160%, 0, 0) skewX(-18deg); opacity: 0.1; }
+                100% { transform: translate3d(160%, 0, 0) skewX(-18deg); opacity: 0; }
             }
 
             @media (max-width: 900px) {
@@ -698,22 +703,13 @@
 @section('scripts')
         <script>
             function setLanguage(lang) {
-                const url = new URL(window.location.href);
-                const basePath = @json(parse_url(config('app.url') ?: url('/'), PHP_URL_PATH));
-                const normalizedBase = (basePath && basePath !== '/') ? basePath.replace(/\/$/, '') : '';
-                let path = url.pathname;
+                const routes = {
+                    es: @json(route('home', ['lang' => 'es'])),
+                    en: @json(route('home', ['lang' => 'en'])),
+                    pt: @json(route('home', ['lang' => 'pt'])),
+                };
 
-                if (normalizedBase && path.startsWith(normalizedBase)) {
-                    path = path.slice(normalizedBase.length);
-                }
-
-                path = path.replace(/^\/(es|en|pt)(?=\/|$)/i, '');
-                path = path.replace(/^\/+/, '');
-
-                url.pathname = `${normalizedBase}/${lang}${path ? '/' + path : ''}`;
-                url.searchParams.delete('lang');
-
-                window.location.href = url.toString();
+                window.location.href = routes[lang] || routes.es;
             }
         </script>
 @endsection
