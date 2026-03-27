@@ -44,15 +44,12 @@ class AdminMenuController extends Controller
             'heading' => 'required|string|max:160',
             'subtitle' => 'nullable|string|max:255',
             'hours' => 'nullable|string|max:255',
-            'ad' => 'nullable|string|max:255',
         ]);
-
         $menuPage = $this->getOrCreatePage($data['locale'], $data['page']);
         $payload = $this->normalizePayload($menuPage->payload);
         $payload['heading'] = $data['heading'];
         $payload['subtitle'] = $data['subtitle'] ?? '';
         $payload['hours'] = $data['hours'] ?? '';
-        $payload['ad'] = $data['ad'] ?? '';
         $this->savePayload($menuPage, $payload);
 
         return $this->redirectToPage($data['locale'], $data['page'], 'Página actualizada.');
@@ -249,7 +246,6 @@ class AdminMenuController extends Controller
         $base['heading'] = (string) ($decoded['heading'] ?? '');
         $base['subtitle'] = (string) ($decoded['subtitle'] ?? '');
         $base['hours'] = (string) ($decoded['hours'] ?? '');
-        $base['ad'] = (string) ($decoded['ad'] ?? '');
         $base['sections'] = collect($decoded['sections'] ?? [])
             ->map(function ($section) {
                 return [

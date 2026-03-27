@@ -87,7 +87,6 @@
           @csrf
           <input type="hidden" name="locale" value="{{ $locale }}">
           <input type="hidden" name="page" value="{{ $page }}">
-          <div class="meta-badge">{{ strtoupper($locale) }} · {{ strtoupper($page) }}</div>
           <div class="grid">
             <div>
               <label>Heading</label>
@@ -101,11 +100,6 @@
               <label>Hours</label>
               <input name="hours" value="{{ $payload['hours'] }}">
             </div>
-          </div>
-          <div class="promo-box">
-            <label>Ad / Promo</label>
-            <textarea name="ad" placeholder="Ejemplo: Chupitos a 2">{{ $payload['ad'] }}</textarea>
-            <div class="field-note">Este contenido se muestra como recuadro promocional en la página pública seleccionada cuando no está vacío.</div>
           </div>
           <div style="margin-top:12px;">
             <button class="btn" type="submit">Guardar página</button>

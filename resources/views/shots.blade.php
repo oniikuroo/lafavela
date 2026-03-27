@@ -501,9 +501,6 @@
                     <h1 class="menu-title">{{ $menuContent['heading'] ?? __('site.shots_heading') }}</h1>
                     <div class="divider" aria-hidden="true"></div>
                     <p class="menu-subtitle">{{ $menuContent['subtitle'] ?? __('site.shots_subtitle') }}</p>
-                    @if (!empty($menuContent['ad']))
-                        <div class="menu-ad">{{ $menuContent['ad'] }}</div>
-                    @endif
                 </div>
                 <div class="menu-hours">
                     {{ $menuContent['hours'] ?? __('site.menu_hours') }}
