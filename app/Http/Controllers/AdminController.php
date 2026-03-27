@@ -42,6 +42,7 @@ class AdminController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'hours' => 'nullable|string|max:255',
             'visit_intro' => 'nullable|string|max:500',
+            'home_ad' => 'nullable|string|max:255',
         ]);
 
         $lang = $data['lang'];
@@ -49,6 +50,7 @@ class AdminController extends Controller
             'subtitle' => $data['subtitle'] ?? '',
             'hours' => $data['hours'] ?? '',
             'visit_intro' => $data['visit_intro'] ?? '',
+            'home_ad' => $data['home_ad'] ?? '',
         ];
 
         foreach ($pairs as $key => $value) {

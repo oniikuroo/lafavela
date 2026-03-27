@@ -155,6 +155,25 @@
                 gap: 16px;
             }
 
+            .admin-link {
+                font-size: 10px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: rgba(11, 58, 138, 0.75);
+                text-decoration: none;
+                padding: 8px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(11, 58, 138, 0.18);
+                background: rgba(255, 255, 255, 0.38);
+                transition: background 200ms ease, transform 200ms ease;
+            }
+
+            .admin-link:hover {
+                background: rgba(255, 255, 255, 0.65);
+                transform: translateY(-1px);
+            }
+
             .lang-select {
                 display: inline-flex;
                 align-items: center;
@@ -463,6 +482,13 @@
                     <a class="nav-link" href="{{ route('home', ['lang' => $currentLang]) }}">{{ __('site.back_home') }}</a>
                     <a class="nav-link" href="{{ route('cocktails', ['lang' => $currentLang]) }}">{{ __('site.nav_cocktails') }}</a>
                     <a class="nav-link" href="{{ route('shots', ['lang' => $currentLang]) }}">{{ __('site.nav_shots') }}</a>
+                    @auth
+                        @if (auth()->user()?->is_admin)
+                            <a class="admin-link" href="{{ route('admin.localized.menu', ['lang' => $currentLang, 'page' => 'menu']) }}">Panel</a>
+                        @endif
+                    @else
+                        <a class="admin-link" href="{{ route('login') }}">Acceso</a>
+                    @endauth
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="setLanguage(this.value)">

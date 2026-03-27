@@ -94,8 +94,8 @@
     <header>
       <strong>Admin La Favela</strong>
       <div class="row">
-        <a class="btn secondary" href="{{ route('admin.menu') }}">Cartas</a>
-        <a class="btn secondary" href="/" target="_blank" rel="noopener">Ver sitio</a>
+        <a class="btn secondary" href="{{ route('admin.menu', ['locale' => $lang, 'page' => 'menu']) }}">Cartas</a>
+        <a class="btn secondary" href="{{ route('home', ['lang' => $lang]) }}" target="_blank" rel="noopener">Ver sitio</a>
       </div>
     </header>
 
@@ -131,6 +131,10 @@
             <div style="grid-column: 1 / -1;">
               <label>Intro visita</label>
               <textarea name="visit_intro">{{ $settings['visit_intro'] ?? '' }}</textarea>
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label>Banner / AD</label>
+              <textarea name="home_ad" placeholder="Ejemplo: Chupitos a 2">{{ $settings['home_ad'] ?? '' }}</textarea>
             </div>
           </div>
           <div style="margin-top: 12px;">

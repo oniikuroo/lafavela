@@ -32,19 +32,23 @@
       .row { display:flex; gap:12px; flex-wrap:wrap; }
       .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }
       label { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px; font-weight:700; color:#0b3a8a; }
-      input, select { width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(11,58,138,.25); font-family:inherit; }
+      input, select, textarea { width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(11,58,138,.25); font-family:inherit; }
+      textarea { min-height: 88px; resize: vertical; }
       .btn { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; border:1px solid rgba(11,58,138,.25); background:#0b3a8a; color:#fff; font-weight:700; cursor:pointer; text-decoration:none; }
       .btn.secondary { background:#fff; color:#0b3a8a; }
       .section { border:1px dashed rgba(11,58,138,.3); padding:12px; border-radius:12px; margin-bottom:12px; }
       .status { margin:10px 0 0; color:#0f5d4c; font-weight:600; }
       h2 { margin-top: 0; }
+      .field-note { margin-top:6px; font-size:12px; line-height:1.4; color:rgba(11,36,27,.68); }
+      .promo-box { margin-top:14px; padding:14px; border-radius:14px; border:1px solid rgba(11,58,138,.18); background:rgba(247,200,0,.08); }
+      .meta-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#0b3a8a; background:rgba(11,58,138,.06); border:1px solid rgba(11,58,138,.16); margin-bottom:14px; }
     </style>
   </head>
   <body>
     <header>
       <strong>Admin | Cartas</strong>
       <div class="row">
-        <a class="btn secondary" href="{{ route('admin.index') }}">Ajustes</a>
+        <a class="btn secondary" href="{{ route('admin.index', ['lang' => $locale]) }}">Ajustes</a>
         <a class="btn secondary" href="{{ route('home', ['lang' => $locale]) }}" target="_blank" rel="noopener">Ver sitio</a>
       </div>
     </header>
@@ -83,6 +87,7 @@
           @csrf
           <input type="hidden" name="locale" value="{{ $locale }}">
           <input type="hidden" name="page" value="{{ $page }}">
+          <div class="meta-badge">{{ strtoupper($locale) }} · {{ strtoupper($page) }}</div>
           <div class="grid">
             <div>
               <label>Heading</label>
@@ -96,10 +101,11 @@
               <label>Hours</label>
               <input name="hours" value="{{ $payload['hours'] }}">
             </div>
-            <div>
-              <label>Ad</label>
-              <input name="ad" value="{{ $payload['ad'] }}">
-            </div>
+          </div>
+          <div class="promo-box">
+            <label>Ad / Promo</label>
+            <textarea name="ad" placeholder="Ejemplo: Chupitos a 2">{{ $payload['ad'] }}</textarea>
+            <div class="field-note">Este contenido se muestra como recuadro promocional en la página pública seleccionada cuando no está vacío.</div>
           </div>
           <div style="margin-top:12px;">
             <button class="btn" type="submit">Guardar página</button>

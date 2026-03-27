@@ -101,6 +101,152 @@ Examples:
 - `locale=en&page=cocktails`
 - `locale=pt&page=shots`
 
+## Control Panel Guide
+
+### Access
+
+Local login URL:
+
+```text
+http://localhost/lafavela/public/login
+```
+
+Current local admin user:
+
+```text
+Email: mikefavela@gmail.com
+Password: 12345678
+```
+
+After login, main admin sections are:
+
+- Home settings: `/admin`
+- Menu editor: `/admin/menu?locale=es&page=menu`
+
+### Home settings panel
+
+URL:
+
+```text
+/admin
+```
+
+This panel lets you manage:
+
+- home subtitle
+- opening hours
+- visit intro text
+- operational notices
+
+Available actions:
+
+- choose language with the `lang` selector
+- update the home texts for the selected language
+- create operational notices
+- publish notices for one language or for all languages
+- delete existing notices
+
+### Menu editor panel
+
+URL pattern:
+
+```text
+/admin/menu?locale=es&page=menu
+```
+
+The editor works with the `menu_pages` table using:
+
+```sql
+SELECT * FROM menu_pages WHERE locale = 'es' AND page = 'menu';
+```
+
+Query meaning:
+
+- `locale` = page language
+- `page` = one of `menu`, `cocktails`, `shots`
+
+Available controls:
+
+- `locale` selector: `es`, `en`, `pt`
+- `page` selector: `menu`, `cocktails`, `shots`
+
+### What can be edited in Menu editor
+
+At page level:
+
+- `heading`
+- `subtitle`
+- `hours`
+- `ad`
+
+At section level:
+
+- create section
+- rename section
+- change section position
+- delete section
+
+At item level:
+
+- create item
+- edit item name
+- edit item description
+- edit item price
+- change item position
+- delete item
+
+### Recommended editing flow
+
+1. Open the correct `locale`
+2. Choose the target `page`
+3. Save page metadata first
+4. Create or reorder sections
+5. Add or edit items inside each section
+6. Open the public page in another tab and verify the result
+
+### Public pages to review after changes
+
+Spanish:
+
+```text
+/es
+/es/menu
+/es/cocktails
+/es/chupitos
+```
+
+English:
+
+```text
+/en
+/en/menu
+/en/cocktails
+/en/chupitos
+```
+
+Portuguese:
+
+```text
+/pt
+/pt/menu
+/pt/cocktails
+/pt/chupitos
+```
+
+### Permissions
+
+Admin routes require a logged-in user with:
+
+```text
+is_admin = 1
+```
+
+Middleware used:
+
+- `auth`
+- `verified`
+- `admin`
+
 ## Deployment
 
 ### Docker

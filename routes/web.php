@@ -4,11 +4,23 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminMenuController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/' . app()->getLocale());
 });
+
+Route::get('/{lang}/admin', function (string $lang) {
+    return redirect()->route('admin.index', ['lang' => $lang]);
+})->where(['lang' => 'es|en|pt'])->name('admin.localized.index');
+
+Route::get('/{lang}/admin/menu', function (Request $request, string $lang) {
+    return redirect()->route('admin.menu', [
+        'locale' => $lang,
+        'page' => $request->query('page', 'menu'),
+    ]);
+})->where(['lang' => 'es|en|pt'])->name('admin.localized.menu');
 
 Route::prefix('{lang}')
     ->where(['lang' => 'es|en|pt'])
@@ -23,7 +35,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/settings', [AdminController::class, 'saveSettings'])->name('admin.settings');
     Route::post('/notices', [AdminController::class, 'storeNotice'])->name('admin.notices.store');

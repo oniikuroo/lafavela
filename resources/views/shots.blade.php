@@ -155,6 +155,25 @@
                 gap: 16px;
             }
 
+            .admin-link {
+                font-size: 10px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: rgba(11, 58, 138, 0.75);
+                text-decoration: none;
+                padding: 8px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(11, 58, 138, 0.18);
+                background: rgba(255, 255, 255, 0.38);
+                transition: background 200ms ease, transform 200ms ease;
+            }
+
+            .admin-link:hover {
+                background: rgba(255, 255, 255, 0.65);
+                transform: translateY(-1px);
+            }
+
             .lang-select {
                 display: inline-flex;
                 align-items: center;
@@ -216,6 +235,23 @@
                 font-size: 12px;
                 font-weight: 700;
                 text-align: right;
+            }
+
+            .menu-ad {
+                margin-top: 16px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #0b3a8a;
+                background: linear-gradient(90deg, rgba(247, 200, 0, 0.25), rgba(255, 138, 42, 0.25));
+                border: 1px solid rgba(11, 58, 138, 0.25);
+                box-shadow: 0 10px 20px rgba(11, 36, 27, 0.12);
             }
 
             .menu-grid {
@@ -442,6 +478,13 @@
                     <a class="nav-link" href="{{ route('menu', ['lang' => $currentLang]) }}">{{ __('site.nav_menu') }}</a>
                     <a class="nav-link" href="{{ route('cocktails', ['lang' => $currentLang]) }}">{{ __('site.nav_cocktails') }}</a>
                     <a class="nav-link" href="{{ route('shots', ['lang' => $currentLang]) }}">{{ __('site.nav_shots') }}</a>
+                    @auth
+                        @if (auth()->user()?->is_admin)
+                            <a class="admin-link" href="{{ route('admin.localized.menu', ['lang' => $currentLang, 'page' => 'shots']) }}">Panel</a>
+                        @endif
+                    @else
+                        <a class="admin-link" href="{{ route('login') }}">Acceso</a>
+                    @endauth
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="setLanguage(this.value)">
@@ -458,6 +501,9 @@
                     <h1 class="menu-title">{{ $menuContent['heading'] ?? __('site.shots_heading') }}</h1>
                     <div class="divider" aria-hidden="true"></div>
                     <p class="menu-subtitle">{{ $menuContent['subtitle'] ?? __('site.shots_subtitle') }}</p>
+                    @if (!empty($menuContent['ad']))
+                        <div class="menu-ad">{{ $menuContent['ad'] }}</div>
+                    @endif
                 </div>
                 <div class="menu-hours">
                     {{ $menuContent['hours'] ?? __('site.menu_hours') }}

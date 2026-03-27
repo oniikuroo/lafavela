@@ -44,5 +44,10 @@ class DatabaseSeeder extends Seeder
             ['email' => 'test@example.com'],
             ['name' => 'Test User', 'password' => bcrypt('password')]
         );
+
+        \App\Models\SiteSetting::query()->updateOrCreate(
+            ['lang' => 'es', 'key' => 'home_ad'],
+            ['value' => 'Ven a probar chupitos a 2']
+        );
     }
 }

@@ -165,6 +165,25 @@
                 gap: 16px;
             }
 
+            .admin-link {
+                font-size: 10px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: rgba(11, 58, 138, 0.75);
+                text-decoration: none;
+                padding: 8px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(11, 58, 138, 0.18);
+                background: rgba(255, 255, 255, 0.38);
+                transition: background 200ms ease, transform 200ms ease;
+            }
+
+            .admin-link:hover {
+                background: rgba(255, 255, 255, 0.65);
+                transform: translateY(-1px);
+            }
+
             .lang-select {
                 display: inline-flex;
                 align-items: center;
@@ -260,6 +279,24 @@
                 letter-spacing: 0.08em;
                 text-transform: uppercase;
                 color: var(--brazil-blue);
+            }
+
+            .home-ad {
+                margin-top: 18px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #0b3a8a;
+                background: linear-gradient(90deg, rgba(247, 200, 0, 0.25), rgba(255, 138, 42, 0.25));
+                border: 1px solid rgba(11, 58, 138, 0.25);
+                border-radius: 999px;
+                box-shadow: 0px 10px 20px rgba(11, 36, 27, 0.12);
             }
 
             .label-line {
@@ -631,10 +668,17 @@
                     @endif
                 </div>
             @endif
-            <header class="topbar">
-                <a class="brand" href="{{ route('home', ['lang' => $currentLang]) }}">La Favela</a>
+                <header class="topbar">
+                    <a class="brand" href="{{ route('home', ['lang' => $currentLang]) }}">La Favela</a>
                 <div class="topbar-right">
                     <div class="location">{{ __('site.location') }}</div>
+                    @auth
+                        @if (auth()->user()?->is_admin)
+                            <a class="admin-link" href="{{ route('admin.localized.index', ['lang' => $currentLang]) }}">Panel</a>
+                        @endif
+                    @else
+                        <a class="admin-link" href="{{ route('login') }}">Acceso</a>
+                    @endauth
                     <div class="lang-select">
                         <span>{{ __('site.language') }}</span>
                         <select aria-label="{{ __('site.language') }}" onchange="setLanguage(this.value)">
@@ -659,6 +703,9 @@
                         </svg>
                     </h1>
                     <div class="label-subtitle">{{ $settings['subtitle'] ?? __('site.subtitle') }}</div>
+                    @if (!empty($settings['home_ad']))
+                        <div class="home-ad">{{ $settings['home_ad'] }}</div>
+                    @endif
                     <div class="label-line" aria-hidden="true"></div>
                     <div class="label-tags">
                         <span class="tag">{{ __('site.tag_cachaca') }}</span>
